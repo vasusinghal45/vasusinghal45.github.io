@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vasu Singhal | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+<style>
+:root{
+  --bg:#f0f4ff;
+  --surface:#ffffff;
+  --surface2:#f8faff;
+  --accent:#2563eb;
+  --accent2:#7c3aed;
+  --accent3:#0891b2;
+  --gold:#d97706;
+  --green:#059669;
+  --text:#1e293b;
+  --muted:#475569;
+  --border:rgba(37,99,235,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 10%,rgba(37,99,235,0.07) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(124,58,237,0.06) 0%,transparent 60%);pointer-events:none;z-index:0;}
+
+/* ── CANVAS ── */
+#bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:9999;padding:16px 48px;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(255,255,255,0.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:.3s;box-shadow:0 1px 24px rgba(37,99,235,0.07);}
+.nav-logo{font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:.3s;letter-spacing:.3px;}
+.nav-links a:hover{color:var(--accent);}
+.nav-links a:hover{color:var(--accent);}
+
+/* ── SECTIONS ── */
+section{position:relative;z-index:1;}
+#hero{background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 50%,#faf5ff 100%);}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;}
+.hero-inner{max-width:860px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);
+  border-radius:40px;padding:6px 18px;font-size:13px;color:var(--accent);margin-bottom:28px;
+  animation:fadeUp .8s ease forwards; opacity:0;}
+.hero-badge::before{content:'';width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5);}50%{box-shadow:0 0 0 6px rgba(16,185,129,0);}}
+.hero-name{font-family:'Outfit',sans-serif;font-size:clamp(48px,8vw,90px);font-weight:900;line-height:1;
+  background:linear-gradient(135deg,#e2e8f0 0%,var(--accent) 40%,var(--accent2) 70%,var(--accent3) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:fadeUp .9s .1s ease forwards;opacity:0;margin-bottom:16px;letter-spacing:-2px;}
+.hero-role{font-family:'Outfit',sans-serif;font-size:clamp(18px,3vw,26px);font-weight:400;color:#334155;
+  animation:fadeUp 1s .2s ease forwards;opacity:0;margin-bottom:24px;}
+.hero-role span{color:var(--accent3);}
+.hero-desc{font-size:15px;color:#475569;line-height:1.8;max-width:620px;margin:0 auto 40px;
+  animation:fadeUp 1s .3s ease forwards;opacity:0;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s .4s ease forwards;opacity:0;}
+.btn-primary{padding:14px 34px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border:none;border-radius:50px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;
+  transition:.3s;text-decoration:none;display:inline-block;
+  box-shadow:0 4px 24px rgba(59,130,246,0.35);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(59,130,246,0.5);}
+.btn-outline{padding:14px 34px;background:rgba(255,255,255,0.8);border:1.5px solid rgba(37,99,235,0.25);border-radius:50px;
+  color:var(--accent);font-size:15px;font-weight:600;cursor:pointer;transition:.3s;text-decoration:none;display:inline-block;box-shadow:0 2px 12px rgba(37,99,235,0.08);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:60px;flex-wrap:wrap;animation:fadeUp 1s .5s ease forwards;opacity:0;}
+.stat{text-align:center;}
+.stat-num{font-family:'Outfit',sans-serif;font-size:42px;font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── SECTION WRAPPER ── */
+.section-wrap{max-width:1100px;margin:0 auto;padding:100px 24px;}
+.section-head{text-align:center;margin-bottom:60px;}
+.section-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px;}
+.section-title{font-family:'Outfit',sans-serif;font-size:clamp(32px,5vw,48px);font-weight:800;
+  background:linear-gradient(135deg,#1e293b,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.section-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));margin:16px auto 0;border-radius:4px;}
+
+/* ── ABOUT ── */
+#about{background:var(--bg);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.about-card{background:linear-gradient(135deg,#ffffff,#f8faff);border:1px solid rgba(37,99,235,0.12);
+  border-radius:24px;padding:40px;transform-style:preserve-3d;transition:.4s;
+  box-shadow:0 8px 48px rgba(37,99,235,0.08);}
+.about-card:hover{transform:translateY(-8px) rotateX(2deg);box-shadow:0 20px 60px rgba(37,99,235,0.14);}
+.about-avatar{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:48px;font-weight:800;
+  color:#fff;margin:0 auto 24px;box-shadow:0 0 40px rgba(59,130,246,0.4);}
+.about-name{font-family:'Outfit',sans-serif;font-size:24px;font-weight:700;text-align:center;margin-bottom:8px;color:#0f172a;}
+.about-role-tag{text-align:center;color:var(--accent3);font-size:13px;font-weight:500;margin-bottom:20px;}
+.about-info-item{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:10px 14px;
+  background:rgba(37,99,235,0.05);border-radius:10px;border:1px solid rgba(37,99,235,0.1);}
+.about-info-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.about-info-text{font-size:13px;color:#1e293b;}
+.about-info-label{font-size:11px;color:#64748b;}
+.about-text-card{padding:0;}
+.about-text-card h3{font-family:'Outfit',sans-serif;font-size:28px;font-weight:700;margin-bottom:16px;
+  background:linear-gradient(135deg,#e2e8f0,var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.about-text-card p{color:var(--muted);line-height:1.8;font-size:14px;margin-bottom:16px;}
+.edu-timeline{margin-top:24px;}
+.edu-item-port{display:flex;gap:14px;margin-bottom:16px;padding:14px;background:rgba(37,99,235,0.05);
+  border-radius:12px;border-left:3px solid var(--accent);}
+.edu-year{font-size:11px;color:var(--accent);font-weight:700;white-space:nowrap;margin-top:2px;}
+.edu-deg-port{font-weight:600;font-size:13px;color:#1e293b;}
+.edu-inst-port{font-size:12px;color:#64748b;}
+
+/* ── SKILLS ── */
+#skills{background:linear-gradient(180deg,#eef2ff 0%,#ffffff 50%,#f0f4ff 100%);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+.skill-card-3d{background:#ffffff;border:1px solid rgba(37,99,235,0.12);border-radius:20px;padding:28px;
+  transition:.4s;cursor:default;transform-style:preserve-3d;position:relative;overflow:hidden;}
+.skill-card-3d::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,0.04),transparent);
+  opacity:0;transition:.3s;}
+.skill-card-3d:hover{transform:translateY(-10px) rotateX(4deg) rotateY(-2deg);box-shadow:0 20px 60px rgba(37,99,235,0.13);}
+.skill-card-3d:hover::before{opacity:1;}
+.skill-icon-wrap{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:16px;}
+.skill-card-title{font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;margin-bottom:12px;color:#1e293b;}
+.skill-tags-small{display:flex;flex-wrap:wrap;gap:6px;}
+.skill-tag-sm{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.sk-blue{background:rgba(37,99,235,0.08);color:#1d4ed8;border:1px solid rgba(37,99,235,0.12);}
+.sk-purple{background:rgba(124,58,237,0.08);color:#6d28d9;border:1px solid rgba(124,58,237,0.12);}
+.sk-green{background:rgba(5,150,105,0.08);color:#047857;border:1px solid rgba(5,150,105,0.12);}
+.sk-orange{background:rgba(217,119,6,0.08);color:#b45309;border:1px solid rgba(217,119,6,0.12);}
+.sk-cyan{background:rgba(8,145,178,0.08);color:#0e7490;border:1px solid rgba(8,145,178,0.12);}
+
+/* ── EXPERIENCE ── */
+.exp-timeline{position:relative;padding-left:32px;}
+.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2),transparent);}
+.exp-entry{margin-bottom:12px;}
+.exp-dot{position:absolute;left:-5px;width:12px;height:12px;background:var(--accent);border-radius:50%;
+  box-shadow:0 0 12px rgba(59,130,246,0.8);margin-top:24px;}
+.exp-card-3d{margin-left:24px;background:#ffffff;border:1px solid rgba(37,99,235,0.12);border-radius:20px;
+  padding:28px;transition:.4s;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(37,99,235,0.07);}
+.exp-card-3d::after{content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.exp-card-3d:hover{transform:translateX(6px);box-shadow:0 12px 48px rgba(37,99,235,0.13);}
+.exp-comp{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;color:#0f172a;margin-bottom:4px;}
+.exp-role-port{color:var(--accent3);font-size:13px;font-weight:500;margin-bottom:4px;}
+.exp-date-port{display:inline-block;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.2);
+  border-radius:20px;padding:3px 12px;font-size:12px;color:var(--accent);font-weight:500;margin-bottom:20px;}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:16px;}
+.proj-card{background:#f8faff;border:1px solid rgba(37,99,235,0.1);border-radius:16px;
+  padding:20px;transition:.4s;transform-style:preserve-3d;}
+.proj-card:hover{transform:translateY(-6px);border-color:rgba(37,99,235,0.3);box-shadow:0 12px 40px rgba(37,99,235,0.1);}
+.proj-num{font-family:'Outfit',sans-serif;font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;margin-bottom:8px;}
+.proj-name-port{font-weight:600;font-size:14px;color:#0f172a;margin-bottom:8px;line-height:1.4;}
+.proj-desc-port{font-size:12px;color:#475569;line-height:1.6;margin-bottom:10px;}
+.proj-techs{display:flex;flex-wrap:wrap;gap:5px;}
+.proj-tech-tag{font-size:10.5px;padding:2px 8px;border-radius:12px;background:rgba(37,99,235,0.08);color:#1d4ed8;border:1px solid rgba(37,99,235,0.1);}
+
+/* ── CERTS ── */
+#certifications{background:linear-gradient(180deg,#f0f4ff,#eef2ff,#f0f4ff);}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.cert-card-port{background:#ffffff;border:1px solid rgba(37,99,235,0.12);border-radius:18px;padding:24px;
+  display:flex;align-items:center;gap:16px;transition:.4s;box-shadow:0 2px 12px rgba(37,99,235,0.06);}
+.cert-card-port:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(37,99,235,0.12);border-color:rgba(37,99,235,0.25);}
+.cert-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;}
+.cert-name-port{font-weight:600;font-size:14px;color:#0f172a;margin-bottom:4px;}
+.cert-issuer{font-size:12px;color:var(--accent3);}
+
+/* ── CONTACT ── */
+#contact{background:linear-gradient(180deg,#f0f4ff,#eef2ff);}
+.contact-card{background:linear-gradient(135deg,#ffffff,#f8faff);border:1px solid rgba(37,99,235,0.12);
+  border-radius:28px;padding:60px;text-align:center;max-width:720px;margin:0 auto;
+  box-shadow:0 8px 60px rgba(37,99,235,0.08);}
+.contact-card h3{font-family:'Outfit',sans-serif;font-size:36px;font-weight:800;margin-bottom:12px;
+  background:linear-gradient(135deg,#1e293b,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.contact-card p{color:#475569;font-size:15px;margin-bottom:36px;line-height:1.7;}
+.contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.contact-link{display:flex;align-items:center;gap:10px;padding:14px 28px;
+  background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.15);border-radius:50px;
+  color:#1e293b;text-decoration:none;font-size:14px;font-weight:500;transition:.3s;}
+.contact-link:hover{background:rgba(37,99,235,0.1);border-color:var(--accent);transform:translateY(-3px);color:var(--accent);}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:32px 24px;border-top:1px solid rgba(37,99,235,0.12);background:#f8faff;color:#64748b;font-size:13px;position:relative;z-index:1;}
+
+/* ── REVEAL ANIMATION ── */
+.reveal{opacity:0;transform:translateY(40px);transition:.7s cubic-bezier(.25,.46,.45,.94);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp 1s .8s forwards;opacity:0;}
+.scroll-ind span{font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.scroll-mouse{width:24px;height:38px;border:2px solid rgba(59,130,246,0.4);border-radius:12px;display:flex;justify-content:center;padding-top:6px;}
+.scroll-wheel{width:3px;height:8px;background:var(--accent);border-radius:3px;animation:scrollWheel 1.5s infinite;}
+@keyframes scrollWheel{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(10px);opacity:0;}}
+
+/* responsive */
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:24px;}
+  .contact-card{padding:36px 24px;}
+}
+
+/* 3D FULL PAGE LAYOUT OVERRIDES */
+body, #hero, #about, #skills, #experience, #certifications, #contact, footer {
+  background: transparent !important;
+}
+.about-card, .skill-card-3d, .exp-card-3d, .proj-card, .cert-card-port, .contact-card {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07) !important;
+}
+.proj-card:hover, .cert-card-port:hover, .skill-card-3d:hover, .about-card:hover, .exp-card-3d:hover, .contact-card:hover {
+  background: rgba(255, 255, 255, 0.8) !important;
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 15px 45px rgba(37, 99, 235, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  z-index: 10;
+}
+.hero-inner {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 50px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+  transform-style: preserve-3d;
+}
+.nav-links a { color: #1e293b !important; font-weight: 600 !important; }
+nav { background: rgba(255, 255, 255, 0.6) !important; backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important; border-bottom: 1px solid rgba(255,255,255,0.5) !important; }
+</style>
+</head>
+<body>
+
+<div id="vanta-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">VS</div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🟢 Available for Work</div>
+    <h1 class="hero-name">Vasu Singhal</h1>
+    <p class="hero-role">Embedded Systems Engineer – <span>R&amp;D &amp; System Integration</span></p>
+    <p class="hero-desc">Building intelligent, real-world access control &amp; security systems — from face recognition kiosks and RFID gate automation to ANPR and GSM OTP barriers. Turning hardware + AI into production-ready products.</p>
+    <div class="hero-btns">
+      <a href="#experience" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num" data-target="2">0</div><div class="stat-label">Years Exp.</div></div>
+      <div class="stat"><div class="stat-num" data-target="14">0</div><div class="stat-label">Projects Built</div></div>
+      <div class="stat"><div class="stat-num" data-target="6">0</div><div class="stat-label">Certifications</div></div>
+      <div class="stat"><div class="stat-num" data-target="5">0</div><div class="stat-label">Systems Deployed</div></div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <div class="section-label">Who I Am</div>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-avatar">VS</div>
+        <div class="about-name">Vasu Singhal</div>
+        <div class="about-role-tag">Embedded Systems Engineer – R&amp;D &amp; System Integration</div>
+        <div class="about-info-item">
+          <div class="about-info-icon">📍</div>
+          <div><div class="about-info-text">Noida, Uttar Pradesh</div><div class="about-info-label">Location</div></div>
+        </div>
+        <div class="about-info-item">
+          <div class="about-info-icon">🏢</div>
+          <div><div class="about-info-text">Socteamup Semiconductor Pvt. Ltd.</div><div class="about-info-label">Current Company</div></div>
+        </div>
+        <div class="about-info-item">
+          <div class="about-info-icon">🎓</div>
+          <div><div class="about-info-text">B.Tech – ECE, ABES Engineering College</div><div class="about-info-label">Education</div></div>
+        </div>
+        <div class="about-info-item">
+          <div class="about-info-icon">🔗</div>
+          <div><div class="about-info-text"><a href="https://www.linkedin.com/in/vasu-singhal-356595171" style="color:var(--accent3);text-decoration:none;">linkedin.com/in/vasu-singhal</a></div><div class="about-info-label">LinkedIn</div></div>
+        </div>
+        <div class="about-info-item">
+          <div class="about-info-icon">✉️</div>
+          <div><div class="about-info-text"><a href="mailto:vasusinghal2018@gmail.com" style="color:var(--accent3);text-decoration:none;">vasusinghal2018@gmail.com</a></div><div class="about-info-label">Email</div></div>
+        </div>
+      </div>
+      <div class="reveal" style="padding:8px 0;">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#e2e8f0,var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+          Bridging AI &amp; Hardware
+        </h3>
+        <p style="color:var(--muted);line-height:1.8;font-size:14px;margin-bottom:14px;">
+          I'm an engineer passionate about making intelligent hardware-software systems that solve real security and automation problems. With 2+ years at <strong style="color:var(--accent)">Socteamup Semiconductor</strong>, I've shipped 14 production systems — from deploying face-recognition kiosks in libraries to integrating boom barriers with GSM OTP verification for society gates.
+        </p>
+        <p style="color:var(--muted);line-height:1.8;font-size:14px;margin-bottom:24px;">
+          My stack spans <strong style="color:var(--accent3)">InsightFace, ArcFace, MTCNN, OpenCV</strong> on the AI side, and <strong style="color:var(--accent3)">MFRC522, SIM800L, RS-485, relay circuits</strong> on the hardware side — all tied together with Python middleware and real-time dashboards.
+        </p>
+        <div class="edu-timeline">
+          <div class="edu-item-port" style="flex-direction:column;gap:4px;padding:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div class="edu-deg-port">B.Tech – Electronics &amp; Communication Engg.</div>
+              <div class="edu-year">76.6% · 2023</div>
+            </div>
+            <div class="edu-inst-port">ABES Engineering College, Ghaziabad (AKTU)</div>
+          </div>
+          <div class="edu-item-port" style="flex-direction:column;gap:4px;padding:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div class="edu-deg-port">Diploma – Digital Electronics</div>
+              <div class="edu-year">77.89% · 2020</div>
+            </div>
+            <div class="edu-inst-port">Board of Technical Education, Delhi</div>
+          </div>
+          <div class="edu-item-port" style="flex-direction:column;gap:4px;padding:16px;border-left-color:var(--accent2);">
+            <div style="display:flex;justify-content:space-between;">
+              <div class="edu-deg-port">10th – CBSE Board</div>
+              <div class="edu-year">6.8 CGPA · 2017</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <div class="section-label">What I Use</div>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card-3d reveal">
+        <div class="skill-icon-wrap" style="background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(59,130,246,0.05));">🧠</div>
+        <div class="skill-card-title">Computer Vision &amp; AI</div>
+        <div class="skill-tags-small">
+          <span class="skill-tag-sm sk-blue">OpenCV</span><span class="skill-tag-sm sk-blue">dlib</span>
+          <span class="skill-tag-sm sk-blue">InsightFace</span><span class="skill-tag-sm sk-blue">ArcFace</span>
+          <span class="skill-tag-sm sk-blue">MTCNN</span><span class="skill-tag-sm sk-blue">Face Embedding</span>
+          <span class="skill-tag-sm sk-blue">ANPR / LPR</span><span class="skill-tag-sm sk-blue">Tesseract OCR</span>
+          <span class="skill-tag-sm sk-blue">EasyOCR</span><span class="skill-tag-sm sk-blue">Edge AI</span>
+          <span class="skill-tag-sm sk-blue">Object Detection</span><span class="skill-tag-sm sk-blue">Real-time Inference</span>
+        </div>
+      </div>
+      <div class="skill-card-3d reveal">
+        <div class="skill-icon-wrap" style="background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(16,185,129,0.05));">⚙️</div>
+        <div class="skill-card-title">Embedded &amp; IoT Hardware</div>
+        <div class="skill-tags-small">
+          <span class="skill-tag-sm sk-green">Arduino</span><span class="skill-tag-sm sk-green">ESP8266/32</span>
+          <span class="skill-tag-sm sk-green">NodeMCU</span><span class="skill-tag-sm sk-green">Raspberry Pi</span>
+          <span class="skill-tag-sm sk-green">MFRC522 RFID</span><span class="skill-tag-sm sk-green">Mifare</span>
+          <span class="skill-tag-sm sk-green">SIM800L/900A</span><span class="skill-tag-sm sk-green">SPI/I2C/UART</span>
+          <span class="skill-tag-sm sk-green">Wiegand</span><span class="skill-tag-sm sk-green">RS-232/485</span>
+          <span class="skill-tag-sm sk-green">Relay Circuits</span>
+        </div>
+      </div>
+      <div class="skill-card-3d reveal">
+        <div class="skill-icon-wrap" style="background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(139,92,246,0.05));">💻</div>
+        <div class="skill-card-title">Software &amp; Protocols</div>
+        <div class="skill-tags-small">
+          <span class="skill-tag-sm sk-purple">Python</span><span class="skill-tag-sm sk-purple">C / C++</span>
+          <span class="skill-tag-sm sk-purple">SQLite / MySQL</span><span class="skill-tag-sm sk-purple">Flask REST API</span>
+          <span class="skill-tag-sm sk-purple">RTSP Streams</span><span class="skill-tag-sm sk-purple">WebSocket</span>
+          <span class="skill-tag-sm sk-purple">Multithreading</span><span class="skill-tag-sm sk-purple">pyserial</span>
+          <span class="skill-tag-sm sk-purple">NumPy / PIL</span><span class="skill-tag-sm sk-purple">Tkinter/PyQt</span>
+          <span class="skill-tag-sm sk-purple">AT Commands</span>
+        </div>
+      </div>
+      <div class="skill-card-3d reveal">
+        <div class="skill-icon-wrap" style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(245,158,11,0.05));">🚪</div>
+        <div class="skill-card-title">Access Control &amp; Hardware</div>
+        <div class="skill-tags-small">
+          <span class="skill-tag-sm sk-orange">Touch Kiosk</span><span class="skill-tag-sm sk-orange">Flap Barrier</span>
+          <span class="skill-tag-sm sk-orange">Boom Barrier</span><span class="skill-tag-sm sk-orange">EM Lock</span>
+          <span class="skill-tag-sm sk-orange">RFID R/W</span><span class="skill-tag-sm sk-orange">Sector/Block Auth</span>
+          <span class="skill-tag-sm sk-orange">Anti-passback</span><span class="skill-tag-sm sk-orange">OTP/2FA</span>
+          <span class="skill-tag-sm sk-orange">Visitor Mgmt</span><span class="skill-tag-sm sk-orange">Membership Sys</span>
+        </div>
+      </div>
+      <div class="skill-card-3d reveal">
+        <div class="skill-icon-wrap" style="background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(6,182,212,0.05));">🔑</div>
+        <div class="skill-card-title">Security &amp; Auth Systems</div>
+        <div class="skill-tags-small">
+          <span class="skill-tag-sm sk-cyan">Biometric Auth</span><span class="skill-tag-sm sk-cyan">TOTP Validation</span>
+          <span class="skill-tag-sm sk-cyan">Key A/B Auth</span><span class="skill-tag-sm sk-cyan">Anti-clone RFID</span>
+          <span class="skill-tag-sm sk-cyan">Encrypted Cards</span><span class="skill-tag-sm sk-cyan">MFA</span>
+          <span class="skill-tag-sm sk-cyan">OTP Voice Call</span><span class="skill-tag-sm sk-cyan">Liveness Det.</span>
+          <span class="skill-tag-sm sk-cyan">Access Audit Trail</span>
+        </div>
+      </div>
+      <div class="skill-card-3d reveal">
+        <div class="skill-icon-wrap" style="background:linear-gradient(135deg,rgba(239,68,68,0.2),rgba(239,68,68,0.05));">🚗</div>
+        <div class="skill-card-title">Vehicle &amp; Surveillance</div>
+        <div class="skill-tags-small">
+          <span class="skill-tag-sm" style="background:rgba(239,68,68,.08);color:#b91c1c;border:1px solid rgba(239,68,68,.12);">ANPR/LPR</span>
+          <span class="skill-tag-sm" style="background:rgba(239,68,68,.08);color:#b91c1c;border:1px solid rgba(239,68,68,.12);">Plate Detection</span>
+          <span class="skill-tag-sm" style="background:rgba(239,68,68,.08);color:#b91c1c;border:1px solid rgba(239,68,68,.12);">Canny Edge</span>
+          <span class="skill-tag-sm" style="background:rgba(239,68,68,.08);color:#b91c1c;border:1px solid rgba(239,68,68,.12);">Morphological Ops</span>
+          <span class="skill-tag-sm" style="background:rgba(239,68,68,.08);color:#b91c1c;border:1px solid rgba(239,68,68,.12);">Whitelist DB</span>
+          <span class="skill-tag-sm" style="background:rgba(239,68,68,.08);color:#b91c1c;border:1px solid rgba(239,68,68,.12);">Vehicle Management</span>
+          <span class="skill-tag-sm" style="background:rgba(239,68,68,.08);color:#b91c1c;border:1px solid rgba(239,68,68,.12);">IP Camera / RTSP</span>
+        </div>
+      </div>
+      <div class="skill-card-3d reveal">
+        <div class="skill-icon-wrap" style="background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(16,185,129,0.05));">📊</div>
+        <div class="skill-card-title">Operations &amp; Management</div>
+        <div class="skill-tags-small">
+          <span class="skill-tag-sm sk-green">MS Excel</span>
+          <span class="skill-tag-sm sk-green">PivotTable</span>
+          <span class="skill-tag-sm sk-green">VLOOKUP</span>
+          <span class="skill-tag-sm sk-green">MIS Reports</span>
+          <span class="skill-tag-sm sk-green">Inventory Mgmt</span>
+          <span class="skill-tag-sm sk-green">Stock Register</span>
+          <span class="skill-tag-sm sk-green">Expense Tracking</span>
+          <span class="skill-tag-sm sk-green">Invoice Digitisation</span>
+          <span class="skill-tag-sm sk-green">GST Tracking</span>
+          <span class="skill-tag-sm sk-green">Vendor Management</span>
+          <span class="skill-tag-sm sk-green">Budget Planning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <div class="section-label">Where I've Worked</div>
+      <h2 class="section-title">Experience &amp; Projects</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="exp-timeline" style="position:relative;">
+      <div class="exp-dot" style="position:absolute;"></div>
+      <div class="exp-card-3d reveal" style="margin-left:24px;">
+        <div class="exp-comp">Socteamup Semiconductor Pvt. Ltd.</div>
+        <div class="exp-role-port">Embedded Systems Engineer – R&amp;D &amp; System Integration</div>
+        <div class="exp-date-port">April 2024 – Present · Noida, UP</div>
+        <div class="projects-grid">
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 01</div>
+            <div class="proj-name-port">Face Recognition Attendance &amp; In/Out System (v1)</div>
+            <div class="proj-desc-port">Real-time pipeline (OpenCV + dlib HOG, 128-d embedding, Euclidean distance) for zero-touch attendance; records saved to SQLite.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">OpenCV</span><span class="proj-tech-tag">dlib</span><span class="proj-tech-tag">128-d Embedding</span><span class="proj-tech-tag">SQLite</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 02</div>
+            <div class="proj-name-port">InsightFace Upgrade + Touch Kiosk – Library Automation</div>
+            <div class="proj-desc-port">Migrated to ArcFace (Buffalo_L + MTCNN); sub-100ms inference. Industrial kiosk deployed at library — touchless in/out for staff &amp; students.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">InsightFace</span><span class="proj-tech-tag">ArcFace</span><span class="proj-tech-tag">MTCNN</span><span class="proj-tech-tag">Touch Kiosk</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 03</div>
+            <div class="proj-name-port">Live Admin Dashboard – Real-time Surveillance &amp; Records</div>
+            <div class="proj-desc-port">RTSP/USB camera feed + member DB (SQLite/MySQL) + Flask API. Staff, student records, fine ledger, in/out reports — all in one UI.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">RTSP</span><span class="proj-tech-tag">Flask API</span><span class="proj-tech-tag">MySQL</span><span class="proj-tech-tag">Tkinter/PyQt</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 04</div>
+            <div class="proj-name-port">Multi-modal Entry – Barcode &amp; RFID on Kiosk</div>
+            <div class="proj-desc-port">Extended kiosk with MFRC522 RFID (SPI, Mifare 1K) + USB HID barcode (EAN-13/QR). Unified event-driven dispatcher — entry in &lt;1 sec.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">MFRC522</span><span class="proj-tech-tag">Mifare 1K</span><span class="proj-tech-tag">SPI</span><span class="proj-tech-tag">Barcode/QR</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 05</div>
+            <div class="proj-name-port">Integrated Kiosk + Flap Barrier – Library &amp; Pool Gate</div>
+            <div class="proj-desc-port">Relay circuit + RS-232/RS-485 commands to tri-arm flap barrier on auth success. Anti-passback logic. Deployed at library lobby &amp; swimming pool.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">Flap Barrier</span><span class="proj-tech-tag">RS-485</span><span class="proj-tech-tag">Relay Circuit</span><span class="proj-tech-tag">Anti-passback</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 06</div>
+            <div class="proj-name-port">Custom RFID R/W – Encrypted Sector/Block Protocol</div>
+            <div class="proj-desc-port">MFRC522 reader/writer at Mifare sector/block level with Key A/B auth. Binary data encoding across sectors — anti-clone, offline-verifiable cards.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">Key A/B Auth</span><span class="proj-tech-tag">Access Bits</span><span class="proj-tech-tag">Anti-clone</span><span class="proj-tech-tag">Encrypted</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 07</div>
+            <div class="proj-name-port">ANPR / LPR – AI Vehicle Number Plate Recognition</div>
+            <div class="proj-desc-port">OpenCV (Canny + adaptive threshold + morphological ops) + Tesseract/EasyOCR pipeline. Whitelist DB for known/unknown vehicle access control.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">OpenCV</span><span class="proj-tech-tag">Tesseract</span><span class="proj-tech-tag">EasyOCR</span><span class="proj-tech-tag">ANPR</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 08–09</div>
+            <div class="proj-name-port">GSM OTP Calling System – Society Gate Automation</div>
+            <div class="proj-desc-port">SIM800L AT commands via UART → auto voice call + SMS OTP → TOTP validation → relay pulse to boom barrier. Fallback SMS if call fails. Full event log.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">SIM800L</span><span class="proj-tech-tag">AT Commands</span><span class="proj-tech-tag">TOTP</span><span class="proj-tech-tag">Boom Barrier</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 10–11</div>
+            <div class="proj-name-port">Smart Visitor Kiosk – Multi-factor Physical Access (MFA)</div>
+            <div class="proj-desc-port">Face recognition + flat number + OTP call/SMS → EM lock + flap + boom release via unified middleware. Full visitor photo audit trail. End-to-end &lt;30s flow.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">MFA</span><span class="proj-tech-tag">EM Lock</span><span class="proj-tech-tag">Flap+Boom</span><span class="proj-tech-tag">Audit Trail</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 12</div>
+            <div class="proj-name-port">Inventory Management System – Component &amp; Stock Tracking</div>
+            <div class="proj-desc-port">Designed and maintained a full inventory system tracking all hardware components (RFID, GSM, relay boards, kiosk parts). Excel-based stock registers with inward/outward logs, reorder alerts, and vendor history.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">MS Excel</span><span class="proj-tech-tag">Stock Register</span><span class="proj-tech-tag">Reorder Alerts</span><span class="proj-tech-tag">Vendor Tracking</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 13</div>
+            <div class="proj-name-port">Excel MIS Reporting – Project Costs &amp; Resource Tracking</div>
+            <div class="proj-desc-port">Created MIS reports using PivotTables, VLOOKUP, conditional formatting and dynamic charts. Monthly/quarterly budget vs. actual tracking across all ongoing projects for management review.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">PivotTable</span><span class="proj-tech-tag">VLOOKUP</span><span class="proj-tech-tag">MIS Reports</span><span class="proj-tech-tag">Budget Tracking</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-num">PROJECT 14</div>
+            <div class="proj-name-port">Expense &amp; Purchase Bill Management – Digitised Financial Records</div>
+            <div class="proj-desc-port">End-to-end purchase workflow: collected &amp; digitised vendor bills, categorised by project/expense type, maintained Excel expense tracker (invoice no., GST, payment status) and prepared monthly reconciliation reports with category-wise pie charts.</div>
+            <div class="proj-techs">
+              <span class="proj-tech-tag">Expense Tracker</span><span class="proj-tech-tag">Invoice Digitisation</span><span class="proj-tech-tag">GST Tracking</span><span class="proj-tech-tag">Financial Reconciliation</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Academic -->
+    <div style="margin-top:60px;">
+      <h3 class="reveal" style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:700;margin-bottom:24px;color:var(--muted);">Academic Projects</h3>
+      <div class="projects-grid">
+        <div class="proj-card reveal">
+          <div class="proj-num">ACADEMIC</div>
+          <div class="proj-name-port">Automatic Temperature Controlled Fan</div>
+          <div class="proj-desc-port">PWM-based fan speed control using Arduino and temperature sensors, implemented on both simulator and hardware breadboard.</div>
+          <div class="proj-techs"><span class="proj-tech-tag">Arduino</span><span class="proj-tech-tag">PWM</span><span class="proj-tech-tag">Temp. Sensor</span></div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-num">ACADEMIC</div>
+          <div class="proj-name-port">Soldier Health &amp; Position Tracking</div>
+          <div class="proj-desc-port">IoT system using NodeMCU to monitor soldier health vitals and GPS position in real-time for tactical decision support.</div>
+          <div class="proj-techs"><span class="proj-tech-tag">NodeMCU</span><span class="proj-tech-tag">GPS</span><span class="proj-tech-tag">IoT</span></div>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-num">ACADEMIC</div>
+          <div class="proj-name-port">IoT-Based Home Automation</div>
+          <div class="proj-desc-port">Remote appliance control (cooler, heater, LEDs, tank) using Blynk IoT platform with C programming and PicSim simulation.</div>
+          <div class="proj-techs"><span class="proj-tech-tag">Blynk</span><span class="proj-tech-tag">IoT</span><span class="proj-tech-tag">C Programming</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" style="background:linear-gradient(180deg,var(--bg),var(--surface),var(--bg));">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <div class="section-label">Credentials</div>
+      <h2 class="section-title">Certifications</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card-port reveal">
+        <div class="cert-icon" style="background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(59,130,246,0.05));">🌐</div>
+        <div><div class="cert-name-port">Front End Development</div><div class="cert-issuer">Great Learning</div></div>
+      </div>
+      <div class="cert-card-port reveal">
+        <div class="cert-icon" style="background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(16,185,129,0.05));">💻</div>
+        <div><div class="cert-name-port">C Programming</div><div class="cert-issuer">TCS iON</div></div>
+      </div>
+      <div class="cert-card-port reveal">
+        <div class="cert-icon" style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(245,158,11,0.05));">📡</div>
+        <div><div class="cert-name-port">Internet of Things (IoT)</div><div class="cert-issuer">Emertxe</div></div>
+      </div>
+      <div class="cert-card-port reveal">
+        <div class="cert-icon" style="background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(139,92,246,0.05));">⚡</div>
+        <div><div class="cert-name-port">Embedded System &amp; IoT</div><div class="cert-issuer">ABES Engineering College</div></div>
+      </div>
+      <div class="cert-card-port reveal">
+        <div class="cert-icon" style="background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(6,182,212,0.05));">🌍</div>
+        <div><div class="cert-name-port">CCNAv7: Introduction to Networks</div><div class="cert-issuer">Cisco Academy</div></div>
+      </div>
+      <div class="cert-card-port reveal">
+        <div class="cert-icon" style="background:linear-gradient(135deg,rgba(239,68,68,0.2),rgba(239,68,68,0.05));">🏆</div>
+        <div><div class="cert-name-port">TCS iON Career Edge – Young Professional</div><div class="cert-issuer">TCS iON</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <div class="section-label">Let's Connect</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Open to Opportunities</h3>
+      <p>Whether you're looking for an Embedded Systems Engineer, a Computer Vision developer, or someone who can build complete hardware-software security systems — let's talk!</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank" class="contact-link">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:vasusinghal2018@gmail.com" class="contact-link">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email Me
+        </a>
+        <a href="resume.html" target="_blank" class="contact-link">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Vasu Singhal &nbsp;·&nbsp; Built with ❤️ &nbsp;·&nbsp; Embedded Systems &amp; Computer Vision Engineer</p>
+</footer>
+
+<script>
+// ── VANTA 3D BACKGROUND (ELECTRONICS/NET) ──
+VANTA.NET({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0xbfdbfe, // Very subtle soft blue for traces
+  backgroundColor: 0xf4f7ff, // Clean soft light background
+  points: 9.00, // Less dense, more elegant
+  maxDistance: 22.00, 
+  spacing: 22.00, // Spread out nodes
+  showDots: true
+});
+
+// ── 3D CARD TILT (ENHANCED) ──
+document.querySelectorAll('.skill-card-3d,.about-card,.proj-card,.cert-card-port,.contact-card,.hero-inner,.exp-card-3d').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=e.clientX-r.left, y=e.clientY-r.top;
+    const cx=r.width/2, cy=r.height/2;
+    const rx=(y-cy)/cy*8, ry=(cx-x)/cx*8;
+    card.style.transform=`perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
+    card.style.transition='none';
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform=`perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
+    card.style.transition='transform 0.5s ease, background 0.4s';
+  });
+  card.addEventListener('mouseenter',()=>{
+    card.style.transition='none';
+  });
+});
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el,target){
+  let cur=0,step=target/60;
+  const timer=setInterval(()=>{
+    cur+=step;
+    if(cur>=target){cur=target;clearInterval(timer);}
+    el.textContent=Math.floor(cur)+(target>=10?'+':'+');
+  },16);
+}
+const observer2=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){
+    document.querySelectorAll('[data-target]').forEach(el=>{
+      animateCounter(el,parseInt(el.dataset.target));
+    });
+    observer2.disconnect();
+  }});
+},{threshold:.3});
+const heroEl=document.querySelector('#hero .hero-stats');
+if(heroEl)observer2.observe(heroEl);
+
+// ── SCROLL REVEAL ──
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+// ── NAV ACTIVE ──
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  nav.style.background=window.scrollY>60?'rgba(255,255,255,0.96)':'rgba(255,255,255,0.82)';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vasu Singhal – Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a2e4a;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --text: #1e293b;
+      --muted: #475569;
+      --border: #cbd5e1;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --tag-bg: #e0f2fe;
+      --tag-color: #0369a1;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 13.5px;
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: var(--primary);
+      color: #fff;
+      padding: 36px 40px 28px;
+    }
+    .header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .header .title {
+      font-size: 14px;
+      color: #93c5fd;
+      font-weight: 500;
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+    .header .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 16px;
+    }
+    .header .contacts a,
+    .header .contacts span {
+      color: #bfdbfe;
+      font-size: 12.5px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .header .contacts a:hover { color: #fff; }
+
+    /* ── Body Layout ── */
+    .body {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      background: #f1f5f9;
+      padding: 28px 22px;
+      border-right: 1px solid var(--border);
+    }
+    .sidebar .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--accent-light);
+    }
+    .sidebar-section { margin-bottom: 26px; }
+
+    .skill-group-title {
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--primary);
+      margin-bottom: 6px;
+      margin-top: 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .tag.accent {
+      background: #dcfce7;
+      color: #166534;
+    }
+    .tag.purple {
+      background: #ede9fe;
+      color: #5b21b6;
+    }
+    .tag.orange {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+
+    .edu-item { margin-bottom: 14px; }
+    .edu-item .deg { font-weight: 600; font-size: 12.5px; color: var(--text); }
+    .edu-item .inst { font-size: 11.5px; color: var(--muted); }
+    .edu-item .year { font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 2px; }
+
+    /* ── Main ── */
+    .main { padding: 28px 32px; }
+
+    .section { margin-bottom: 26px; }
+    .section-title-main {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--accent-light);
+    }
+
+    /* Objective */
+    .objective-text {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* Experience */
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .exp-company {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--primary);
+    }
+    .exp-role {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .exp-date {
+      font-size: 11.5px;
+      color: var(--muted);
+      white-space: nowrap;
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .exp-location {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .project-block {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+    }
+    .project-block + .project-block { margin-top: 10px; }
+    .project-name {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    .project-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .project-desc ul {
+      padding-left: 16px;
+      margin-top: 4px;
+    }
+    .project-desc li { margin-bottom: 3px; }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .project-tech .tag { font-size: 10.5px; padding: 2px 7px; }
+
+    /* Certs */
+    .cert-list { list-style: none; padding: 0; }
+    .cert-list li {
+      font-size: 12.5px;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px dashed var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .cert-list li:last-child { border-bottom: none; }
+    .cert-list li::before {
+      content: '✔';
+      color: var(--accent);
+      font-size: 11px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Achievements */
+    .ach-list { list-style: none; padding: 0; }
+    .ach-list li {
+      font-size: 12.5px;
+      color: var(--muted);
+      padding: 5px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .ach-list li::before {
+      content: '★';
+      color: #f59e0b;
+      font-size: 11px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <div class="header">
+    <h1>Vasu Singhal</h1>
+    <div class="title">Embedded Systems Engineer – R&amp;D &amp; System Integration | Computer Vision | Access Control | RFID | Gate Automation | ANPR | IoT</div>
+    <div class="contacts">
+      <span>📍 Noida, Uttar Pradesh</span>
+      <a href="mailto:vasusinghal2018@gmail.com">✉ vasusinghal2018@gmail.com</a>
+      <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank">🔗 linkedin.com/in/vasu-singhal</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════ BODY ═══════════════ -->
+  <div class="body">
+
+    <!-- ── SIDEBAR ── -->
+    <div class="sidebar">
+
+      <!-- Skills -->
+      <div class="sidebar-section">
+        <div class="section-title">Technical Skills</div>
+
+        <div class="skill-group-title">Computer Vision &amp; AI</div>
+        <div class="tags">
+          <span class="tag">OpenCV</span>
+          <span class="tag">dlib</span>
+          <span class="tag">InsightFace</span>
+          <span class="tag">ArcFace</span>
+          <span class="tag">MTCNN</span>
+          <span class="tag">Face Embedding</span>
+          <span class="tag">Face Recognition</span>
+          <span class="tag">Liveness Detection</span>
+          <span class="tag">OCR / Tesseract</span>
+          <span class="tag">ANPR</span>
+          <span class="tag">Object Detection</span>
+          <span class="tag">Image Processing</span>
+          <span class="tag">Real-time Inference</span>
+        </div>
+
+        <div class="skill-group-title">Embedded Systems &amp; IoT</div>
+        <div class="tags">
+          <span class="tag accent">Arduino</span>
+          <span class="tag accent">ESP8266 / ESP32</span>
+          <span class="tag accent">NodeMCU</span>
+          <span class="tag accent">Raspberry Pi</span>
+          <span class="tag accent">RFID (RC522 / MFRC522)</span>
+          <span class="tag accent">Mifare Card</span>
+          <span class="tag accent">GSM (SIM800/SIM900)</span>
+          <span class="tag accent">Barcode / QR</span>
+          <span class="tag accent">SPI / I2C / UART</span>
+          <span class="tag accent">Relay Driver Circuit</span>
+          <span class="tag accent">Flap Barrier</span>
+          <span class="tag accent">Boom Barrier</span>
+          <span class="tag accent">Electromagnetic Lock</span>
+          <span class="tag accent">Wiegand Protocol</span>
+        </div>
+
+        <div class="skill-group-title">Software &amp; Protocols</div>
+        <div class="tags">
+          <span class="tag purple">Python</span>
+          <span class="tag purple">C / C++</span>
+          <span class="tag purple">SQLite / MySQL</span>
+          <span class="tag purple">REST API</span>
+          <span class="tag purple">HTTP / WebSocket</span>
+          <span class="tag purple">RTSP (IP Camera)</span>
+          <span class="tag purple">OTP / 2FA</span>
+          <span class="tag purple">Multithreading</span>
+          <span class="tag purple">NumPy / PIL</span>
+          <span class="tag purple">Serial (pyserial)</span>
+          <span class="tag purple">Tkinter / PyQt</span>
+        </div>
+
+        <div class="skill-group-title">Hardware &amp; Integration</div>
+        <div class="tags">
+          <span class="tag orange">Touch Screen Kiosk</span>
+          <span class="tag orange">Industrial Kiosk</span>
+          <span class="tag orange">Gate Control System</span>
+          <span class="tag orange">RFID R/W (Sector/Block)</span>
+          <span class="tag orange">Encrypted Card Data</span>
+          <span class="tag orange">Access Control Panel</span>
+          <span class="tag orange">Membership Management</span>
+          <span class="tag orange">Visitor Management</span>
+          <span class="tag orange">Society Intercom</span>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="sidebar-section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-item">
+          <div class="deg">B.Tech – ECE</div>
+          <div class="inst">ABES Engineering College, Ghaziabad (AKTU)</div>
+          <div class="year">2023 &nbsp;|&nbsp; 76.6%</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="deg">Diploma – Digital Electronics</div>
+          <div class="inst">Board of Technical Education, Delhi</div>
+          <div class="year">2020 &nbsp;|&nbsp; 77.89%</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="deg">10th – CBSE</div>
+          <div class="inst">CBSE Board</div>
+          <div class="year">2017 &nbsp;|&nbsp; 6.8 CGPA</div>
+        </div>
+      </div>
+
+      <!-- Keywords -->
+      <div class="sidebar-section">
+        <div class="section-title">Industry Keywords</div>
+        <div class="tags" style="gap:5px;">
+          <span class="tag">Access Control</span>
+          <span class="tag">Biometric Authentication</span>
+          <span class="tag">Facial Recognition System</span>
+          <span class="tag">Attendance Automation</span>
+          <span class="tag">Visitor Management System</span>
+          <span class="tag">Smart Gate Automation</span>
+          <span class="tag">AI-based Surveillance</span>
+          <span class="tag">Edge AI / Edge Computing</span>
+          <span class="tag">Real-time Video Analytics</span>
+          <span class="tag">ANPR / LPR</span>
+          <span class="tag">Vehicle Access Control</span>
+          <span class="tag">OTP-based Auth</span>
+          <span class="tag">Touchless Entry</span>
+          <span class="tag">Multi-factor Authentication</span>
+          <span class="tag">Physical Security Systems</span>
+          <span class="tag">Smart Building Tech</span>
+          <span class="tag">Industrial IoT (IIoT)</span>
+          <span class="tag">Embedded Firmware</span>
+          <span class="tag">Hardware-Software Co-design</span>
+          <span class="tag">Society Security</span>
+          <span class="tag">Library Automation</span>
+        </div>
+      </div>
+
+    </div><!-- /sidebar -->
+
+    <!-- ── MAIN ── -->
+    <div class="main">
+
+      <!-- Objective -->
+      <div class="section">
+        <div class="section-title-main">Career Objective</div>
+        <p class="objective-text">
+          Results-driven <strong>Embedded Systems Engineer (R&amp;D &amp; System Integration)</strong> with 2+ years of industry experience designing, deploying, and scaling real-world AI-powered security and automation solutions. Proficient in end-to-end system development — from <strong>facial recognition pipelines (OpenCV, dlib, InsightFace/ArcFace, MTCNN)</strong> and <strong>ANPR/OCR</strong> to <strong>RFID firmware, GSM/OTP authentication</strong>, and full <strong>barrier integration (flap/boom/electromagnetic locks)</strong>. Adept at embedding intelligent software into industrial hardware (touch kiosks, access panels, gate controllers) for real-time, touchless, and tamper-resistant environments. Seeking a challenging role to architect smart access, surveillance, and IoT ecosystems at scale.
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div class="section">
+        <div class="section-title-main">Professional Experience</div>
+
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Socteamup Semiconductor Pvt. Ltd.</div>
+            <div class="exp-role">Embedded Systems Engineer – R&amp;D &amp; System Integration</div>
+            <div class="exp-location">📍 Noida, Uttar Pradesh</div>
+          </div>
+          <span class="exp-date">April 2024 – Present</span>
+        </div>
+
+        <!-- Project 1 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Face Recognition – Automated Attendance &amp; In/Out Management System (v1)</div>
+          <div class="project-desc">
+            <ul>
+              <li>Engineered a real-time face detection and recognition pipeline using <strong>OpenCV (Haar cascade / HOG detector)</strong> and <strong>dlib (68-point facial landmark predictor + face_recognition library)</strong> for automated attendance marking and in/out entry logging.</li>
+              <li>Implemented <strong>128-d face embedding comparison</strong> with Euclidean distance thresholding to distinguish known vs. unknown individuals at camera-feed speed (&gt;15 FPS).</li>
+              <li>Eliminated 100% manual punch-in/out with a zero-touch biometric attendance pipeline writing records to a local SQLite database.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">dlib</span>
+            <span class="tag">face_recognition lib</span><span class="tag">128-d Face Embedding</span>
+            <span class="tag">Euclidean Distance</span><span class="tag">SQLite</span><span class="tag">HOG Detector</span>
+            <span class="tag">Attendance Automation</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-block">
+          <div class="project-name">🔹 InsightFace Upgrade + Touch Kiosk Deployment – Library Access Automation</div>
+          <div class="project-desc">
+            <ul>
+              <li>Migrated face recognition engine from <strong>dlib</strong> to <strong>InsightFace (Buffalo_L model, ArcFace backbone + MTCNN detection)</strong>, achieving significantly higher TAR (True Acceptance Rate), sub-100ms inference, and robust known/unknown classification under varying lighting and pose.</li>
+              <li>Deployed an <strong>industrial touch-screen kiosk</strong> (Android/Windows panel PC) inside a library; integrated the recognition pipeline with a real-time UI overlay showing member name, photo, fine status, and entry/exit timestamp.</li>
+              <li>Zero manual registration required — member approaches kiosk, face is detected, matched against enrolled embedding database, and entry/exit event is stamped automatically.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">InsightFace</span><span class="tag">ArcFace</span><span class="tag">MTCNN</span>
+            <span class="tag">Buffalo_L Model</span><span class="tag">Face Embedding DB</span>
+            <span class="tag">Touch Screen Kiosk</span><span class="tag">TAR Optimization</span>
+            <span class="tag">Known/Unknown Classification</span><span class="tag">Library Automation</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Centralized Live Dashboard – Real-time Surveillance &amp; Library Data Management</div>
+          <div class="project-desc">
+            <ul>
+              <li>Built a multi-pane admin dashboard rendering <strong>live RTSP/USB camera feeds</strong> alongside a real-time log of recognition events, member profiles (staff / students), fine ledger, and in/out history.</li>
+              <li>Dashboard backend polls a <strong>SQLite/MySQL database</strong> and updates the UI via Python Tkinter / PyQt widgets or a lightweight Flask web server with periodic JSON API refresh.</li>
+              <li>Enabled library administrators to search, filter, and export attendance and fine reports without third-party tools.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">RTSP / USB Camera</span><span class="tag">Live Video Feed</span>
+            <span class="tag">Tkinter / PyQt</span><span class="tag">Flask REST API</span>
+            <span class="tag">SQLite / MySQL</span><span class="tag">Member Management</span>
+            <span class="tag">Fine Ledger</span><span class="tag">Attendance Reports</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Multi-modal Entry System – Barcode Scanner &amp; RFID Integration on Kiosk</div>
+          <div class="project-desc">
+            <ul>
+              <li>Extended the kiosk pipeline with <strong>1D/2D barcode scanner (USB HID)</strong> and <strong>RFID reader (RC522 / MFRC522 over SPI)</strong> as parallel entry modalities, reducing average entry time to &lt;1 second.</li>
+              <li>Unified all three modalities (face / barcode / RFID) under a single event-driven Python dispatcher that writes to the same attendance database, ensuring data consistency.</li>
+              <li>Supported multiple card types: <strong>Mifare Classic 1K, Mifare Ultralight</strong>; QR code and EAN-13 barcode formats.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">Barcode (USB HID)</span><span class="tag">QR Code</span>
+            <span class="tag">RFID RC522 / MFRC522</span><span class="tag">SPI Interface</span>
+            <span class="tag">Mifare Classic 1K</span><span class="tag">Multi-modal Dispatcher</span>
+            <span class="tag">Event-driven Architecture</span>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Integrated Kiosk + Flap Barrier System – Library &amp; Swimming Pool Gate Control</div>
+          <div class="project-desc">
+            <ul>
+              <li>Interfaced the kiosk software with <strong>tri-arm / flap barrier controllers</strong> via <strong>relay driver circuits and serial (RS-232/RS-485) commands</strong> to physically open/close gates on successful authentication events.</li>
+              <li>Deployed across two sites: library lobby and outdoor swimming pool — managing <strong>membership tiers, session-based access, guest passes, and time-slot enforcement</strong>.</li>
+              <li>Implemented <strong>anti-passback logic</strong> to prevent tailgating and duplicate entry/exit events.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">Flap Barrier Controller</span><span class="tag">Relay Driver Circuit</span>
+            <span class="tag">RS-232 / RS-485</span><span class="tag">Anti-passback Logic</span>
+            <span class="tag">Membership Tiers</span><span class="tag">Session-based Access</span>
+            <span class="tag">Guest Pass Management</span><span class="tag">Swimming Pool Automation</span>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Custom RFID Reader/Writer – Encrypted Sector/Block Data Protocol</div>
+          <div class="project-desc">
+            <ul>
+              <li>Designed and programmed a custom <strong>MFRC522-based RFID reader/writer module</strong> that operates at the <strong>Mifare sector/block layer</strong> (not just UID sniffing) using proprietary <strong>key A/B authentication</strong> for each sector — ensuring card data cannot be cloned by generic readers.</li>
+              <li>Implemented a structured <strong>binary data encoding scheme</strong> across multiple sectors: member ID, access level, timestamp, checksum — making the card self-contained and offline-verifiable.</li>
+              <li>Enhanced physical security posture: cards without correct sector keys are rejected; data blocks are write-protected via access bit configuration.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">MFRC522</span><span class="tag">Mifare Classic</span><span class="tag">Sector/Block R/W</span>
+            <span class="tag">Key A/B Auth</span><span class="tag">Access Bits Config</span>
+            <span class="tag">Binary Data Encoding</span><span class="tag">Anti-clone Security</span>
+            <span class="tag">Offline Card Verification</span>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-block">
+          <div class="project-name">🔹 ANPR / LPR – AI-based Vehicle Number Plate Recognition &amp; Access Control</div>
+          <div class="project-desc">
+            <ul>
+              <li>Developed an <strong>Automatic Number Plate Recognition (ANPR / LPR)</strong> pipeline using <strong>OpenCV (contour detection, morphological ops)</strong> + <strong>Tesseract OCR / EasyOCR</strong> to extract alphanumeric plate text from live video frames.</li>
+              <li>Pre-processing stack: <strong>grayscale → adaptive thresholding → Canny edge detection → plate region localization</strong> before OCR pass, achieving high accuracy under varied lighting and plate conditions.</li>
+              <li>Cross-referenced extracted plate strings against a <strong>whitelist database</strong> to classify vehicles as authorised / unauthorised; triggered barrier open signal or alert accordingly.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">OpenCV</span><span class="tag">Tesseract OCR</span><span class="tag">EasyOCR</span>
+            <span class="tag">Canny Edge Detection</span><span class="tag">Adaptive Thresholding</span>
+            <span class="tag">ANPR / LPR</span><span class="tag">Plate Whitelist DB</span>
+            <span class="tag">Vehicle Access Control</span><span class="tag">Morphological Ops</span>
+          </div>
+        </div>
+
+        <!-- Project 8 & 9 -->
+        <div class="project-block">
+          <div class="project-name">🔹 GSM OTP Calling &amp; SMS Verification System – Society Gate Automation</div>
+          <div class="project-desc">
+            <ul>
+              <li>Built a <strong>GSM modem (SIM800L/SIM900A) controlled via AT commands</strong> over UART from a Python host to trigger <strong>automatic voice calls and SMS OTPs</strong> to registered resident mobile numbers on visitor arrival.</li>
+              <li>Resident dials back / enters 6-digit OTP on the gate keypad; system validates the TOTP hash and sends a <strong>relay pulse to the boom barrier controller</strong> to open the gate for a configurable duration.</li>
+              <li>Fallback mechanism: if call fails, SMS OTP is sent automatically; system logs all visitor events with timestamp, resident flat number, and OTP status.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">SIM800L / SIM900A</span><span class="tag">AT Commands</span><span class="tag">UART</span>
+            <span class="tag">Voice Call / SMS OTP</span><span class="tag">TOTP Validation</span>
+            <span class="tag">Relay Pulse</span><span class="tag">Boom Barrier</span>
+            <span class="tag">Society Gate Automation</span><span class="tag">Event Logging</span>
+          </div>
+        </div>
+
+        <!-- Project 10 & 11 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Smart Visitor Kiosk + Unified Gate Control – Multi-factor Physical Access (MFA)</div>
+          <div class="project-desc">
+            <ul>
+              <li>Engineered a next-gen visitor management kiosk implementing <strong>multi-factor physical access (MFA)</strong>: <strong>face recognition (InsightFace) + house/flat number lookup + OTP voice call/SMS</strong> — ensuring only verified, pre-cleared visitors gain entry.</li>
+              <li>Kiosk UI (touch-screen) guides visitor through a step-by-step flow: face capture → flat number entry → resident OTP approval → gate release; entire flow &lt;30 seconds end-to-end.</li>
+              <li>Final integration layer: Python serial driver dispatches unlock commands simultaneously to <strong>electromagnetic gate locks, flap barrier, and boom barrier</strong> depending on site configuration — all via a unified access control middleware.</li>
+              <li>Full audit trail: visitor photo, timestamp, flat number, OTP status, and gate action logged to a central database with a searchable admin dashboard.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">MFA Physical Access</span><span class="tag">InsightFace</span>
+            <span class="tag">OTP Voice / SMS</span><span class="tag">Flat Number Lookup</span>
+            <span class="tag">Electromagnetic Lock</span><span class="tag">Flap Barrier</span>
+            <span class="tag">Boom Barrier</span><span class="tag">Access Control Middleware</span>
+            <span class="tag">Visitor Audit Trail</span><span class="tag">Touchless Entry</span>
+          </div>
+        </div>
+
+        <!-- Project 12 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Inventory Management System – Component & Stock Tracking</div>
+          <div class="project-desc">
+            <ul>
+              <li>Designed and maintained a comprehensive <strong>inventory management system</strong> to track all electronic components, hardware modules (RFID readers, GSM modems, relay boards, kiosk parts), and consumables across the organisation.</li>
+              <li>Built structured <strong>Excel (xlsx) based stock registers</strong> with dynamic formulas for auto-calculating stock levels, reorder alerts, and supplier-wise component history.</li>
+              <li>Implemented <strong>inward / outward stock logs</strong> with date, quantity, unit price, project mapping, and vendor details — enabling real-time inventory audit at any point.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">Inventory Management</span><span class="tag">Excel (XLSX)</span>
+            <span class="tag">Stock Register</span><span class="tag">Reorder Alerts</span>
+            <span class="tag">Inward/Outward Log</span><span class="tag">Vendor Tracking</span>
+          </div>
+        </div>
+
+        <!-- Project 13 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Excel-based MIS Reporting – Project Costs & Resource Tracking</div>
+          <div class="project-desc">
+            <ul>
+              <li>Created and maintained <strong>Management Information System (MIS) reports in Microsoft Excel</strong> covering project-wise component costs, labour hours, deployment timelines, and delivery status.</li>
+              <li>Used <strong>PivotTables, VLOOKUP, conditional formatting, and dynamic charts</strong> to present cost breakdowns and project progress summaries to management.</li>
+              <li>Maintained <strong>monthly and quarterly summary sheets</strong> for budget vs. actual tracking across all ongoing projects.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">Microsoft Excel</span><span class="tag">MIS Reports</span>
+            <span class="tag">PivotTable</span><span class="tag">VLOOKUP</span>
+            <span class="tag">Dynamic Charts</span><span class="tag">Budget Tracking</span>
+          </div>
+        </div>
+
+        <!-- Project 14 -->
+        <div class="project-block">
+          <div class="project-name">🔹 Expense & Purchase Bill Management – Digitised Financial Records</div>
+          <div class="project-desc">
+            <ul>
+              <li>Managed end-to-end <strong>purchase expense workflow</strong>: collected physical/digital bills from vendors, digitised them (scanned PDF / image upload), categorised by project and expense type, and uploaded to an organised <strong>Google Drive / local NAS folder structure</strong>.</li>
+              <li>Maintained an <strong>Excel-based expense tracker</strong> with columns for date, vendor name, invoice number, GST details, amount, payment mode, payment status, and project code — enabling accurate monthly reconciliation.</li>
+              <li>Prepared <strong>monthly expense summary reports</strong> with category-wise pie charts (components, logistics, labour, miscellaneous) for management review and financial audit readiness.</li>
+              <li>Tracked <strong>pending payments, advance adjustments, and GST input credit</strong> entries to assist the accounts team with timely vendor settlement.</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tag">Expense Management</span><span class="tag">Purchase Bills</span>
+            <span class="tag">Invoice Digitisation</span><span class="tag">GST Tracking</span>
+            <span class="tag">Excel Expense Tracker</span><span class="tag">Financial Reconciliation</span>
+            <span class="tag">Vendor Management</span><span class="tag">Monthly MIS</span>
+          </div>
+        </div>
+
+      </div><!-- /Experience -->
+
+      <!-- Academic Projects -->
+      <div class="section">
+        <div class="section-title-main">Academic Projects</div>
+
+        <div class="project-block">
+          <div class="project-name">Automatic Temperature Controlled Fan</div>
+          <div class="project-desc">Developed an automatic fan speed controller adjusting speed based on ambient temperature using Arduino and hardware implementation on breadboard.</div>
+          <div class="project-tech"><span class="tag">Arduino</span><span class="tag">Temperature Sensor</span><span class="tag">PWM Control</span></div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Soldier Health &amp; Position Tracking System</div>
+          <div class="project-desc">IoT-based system using NodeMCU to track soldier vitals and GPS position, enabling control units to make real-time decisions and ensure soldier safety.</div>
+          <div class="project-tech"><span class="tag">NodeMCU</span><span class="tag">GPS</span><span class="tag">Health Sensors</span><span class="tag">IoT</span></div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">IoT-Based Home Automation</div>
+          <div class="project-desc">Remote control of home appliances (cooler, heater, LEDs, water tank) via Blynk IoT platform; developed using C programming and PicSim lab simulation.</div>
+          <div class="project-tech"><span class="tag">IoT</span><span class="tag">Blynk</span><span class="tag">NodeMCU</span><span class="tag">C Programming</span></div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="section">
+        <div class="section-title-main">Certifications</div>
+        <ul class="cert-list">
+          <li>Front End Development – Great Learning</li>
+          <li>C Programming – TCS iON</li>
+          <li>Internet of Things (IoT) – Emertxe</li>
+          <li>Embedded System &amp; IoT – ABES Engineering College</li>
+          <li>CCNAv7: Introduction to Networks – Cisco Academy</li>
+          <li>TCS iON Career Edge – Young Professional</li>
+        </ul>
+      </div>
+
+      <!-- Achievements -->
+      <div class="section">
+        <div class="section-title-main">Achievements &amp; Activities</div>
+        <ul class="ach-list">
+          <li>Completed Robotics (O-Level) course – Times Institute of Management &amp; Technical Studies</li>
+          <li>Participated in Embedded System Design MOOC by Texas Instruments</li>
+        </ul>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /body -->
+
+</div><!-- /page -->
+</body>
+</html>
