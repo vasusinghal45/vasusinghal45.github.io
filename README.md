@@ -1,7 +1,7 @@
 # 🚀 Vasu Singhal – Portfolio & Resume
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-2563eb?style=for-the-badge)](https://vasusinghal.github.io)
-[![Resume](https://img.shields.io/badge/📄_Resume-View-7c3aed?style=for-the-badge)](https://vasusinghal.github.io/resume.html)
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-2563eb?style=for-the-badge)](https://vasusinghal45.github.io)
+[![Resume](https://img.shields.io/badge/📄_Resume-View-7c3aed?style=for-the-badge)](https://vasusinghal45.github.io/resume.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/vasu-singhal-356595171)
 [![Email](https://img.shields.io/badge/Email-Contact-ea4335?style=for-the-badge&logo=gmail)](mailto:vasusinghal2018@gmail.com)
 
@@ -76,7 +76,7 @@ I specialize in the full stack of **intelligent access control systems** — fro
 | 📍 Location | Noida, Uttar Pradesh, India |
 | ✉️ Email | [vasusinghal2018@gmail.com](mailto:vasusinghal2018@gmail.com) |
 | 🔗 LinkedIn | [linkedin.com/in/vasu-singhal-356595171](https://www.linkedin.com/in/vasu-singhal-356595171) |
-| 🌐 Portfolio | [vasusinghal.github.io](https://vasusinghal.github.io) |
+| 🌐 Portfolio | [vasusinghal45.github.io](https://vasusinghal45.github.io) |
 
 ---
 
