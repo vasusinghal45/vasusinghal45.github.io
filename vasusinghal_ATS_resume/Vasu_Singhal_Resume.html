@@ -4,664 +4,372 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vasu Singhal – Resume | Embedded Systems Engineer</title>
-  <meta name="description" content="Vasu Singhal – Embedded Systems Engineer with 2+ years in Computer Vision, RFID, Access Control, ANPR, IoT, Gate Automation."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Vasu Singhal – Embedded Systems Engineer, Computer Vision, RFID, ANPR, IoT, Access Control – 2 years experience."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0f1f3d;
-      --accent: #1d4ed8;
-      --accent2: #7c3aed;
-      --accent3: #0891b2;
-      --accent-light: #dbeafe;
-      --text: #1e293b;
-      --muted: #4b5563;
-      --border: #e2e8f0;
-      --bg: #f0f4ff;
-      --white: #ffffff;
-      --green: #059669;
+      --primary:#0f1f3d; --accent:#1d4ed8; --accent2:#7c3aed;
+      --light:#dbeafe; --muted:#4b5563; --border:#e2e8f0;
+      --bg:#f0f4ff;
     }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:#1e293b; font-size:12px; padding:16px; }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* Print/Save bar */
+    .bar { max-width:820px; margin:0 auto 10px; display:flex; gap:8px; justify-content:flex-end; }
+    .bar a, .bar button {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:7px 18px; border-radius:30px; font-family:'Outfit',sans-serif;
+      font-size:12.5px; font-weight:700; cursor:pointer; text-decoration:none;
+      border:none; transition:.25s;
+    }
+    .btn-pdf { background:linear-gradient(135deg,#1d4ed8,#7c3aed); color:#fff; box-shadow:0 3px 14px rgba(29,78,216,.35); }
+    .btn-pdf:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(29,78,216,.5); }
+    .btn-port { background:linear-gradient(135deg,#0f172a,#1e3a8a); color:#fff; }
+    .btn-port:hover { transform:translateY(-2px); }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 13px;
-      line-height: 1.6;
-      padding: 20px 16px;
-    }
+    /* Page */
+    .page { max-width:820px; margin:0 auto; background:#fff; border-radius:12px;
+      box-shadow:0 6px 36px rgba(29,78,216,.12); overflow:hidden; }
 
-    /* ── PRINT BUTTON (hidden on print) ── */
-    .print-bar {
-      max-width: 920px;
-      margin: 0 auto 14px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
+    /* ── HEADER ── */
+    .hdr {
+      background:linear-gradient(135deg,#0f1f3d 0%,#1d4ed8 55%,#7c3aed 100%);
+      padding:22px 32px 18px; position:relative; overflow:hidden;
     }
-    .print-btn {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 9px 20px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff; border: none; border-radius: 30px;
-      font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
-      cursor: pointer; text-decoration: none;
-      box-shadow: 0 4px 16px rgba(29,78,216,0.35);
-      transition: .3s;
-    }
-    .print-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(29,78,216,0.5); }
+    .hdr::before { content:''; position:absolute; top:-40px; right:-40px;
+      width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,0.06); }
+    .hdr-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; position:relative; z-index:1; }
+    .hdr h1 { font-family:'Outfit',sans-serif; font-size:28px; font-weight:800; color:#fff; letter-spacing:-.5px; }
+    .hdr-role { font-size:11.5px; color:#93c5fd; font-weight:500; margin-top:3px; line-height:1.45; }
+    .badge { display:inline-flex; align-items:center; gap:5px;
+      background:rgba(5,150,105,.22); border:1px solid rgba(52,211,153,.45);
+      border-radius:20px; padding:3px 10px; font-size:10px; color:#6ee7b7; font-weight:700; margin-top:6px; }
+    .badge-dot { width:6px; height:6px; background:#34d399; border-radius:50%; animation:blink 1.4s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+    .contacts { display:flex; flex-wrap:wrap; gap:4px 12px; margin-top:12px; position:relative; z-index:1; }
+    .contacts a, .contacts span { color:#bfdbfe; font-size:10.5px; text-decoration:none;
+      display:inline-flex; align-items:center; gap:4px; transition:.2s; }
+    .contacts a:hover { color:#fff; }
+    .contacts .pipe { color:rgba(191,219,254,.3); }
 
-    .page {
-      max-width: 920px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: 0 8px 48px rgba(29,78,216,0.12);
-      overflow: hidden;
-    }
+    /* ── BODY ── */
+    .body { display:grid; grid-template-columns:195px 1fr; }
 
-    /* ══ HEADER ══ */
-    .header {
-      background: linear-gradient(135deg, #0f1f3d 0%, #1d4ed8 55%, #7c3aed 100%);
-      padding: 34px 44px 28px;
-      position: relative;
-      overflow: hidden;
-    }
-    .header::before {
-      content: ''; position: absolute;
-      top: -50px; right: -50px;
-      width: 200px; height: 200px; border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-    }
-    .header::after {
-      content: ''; position: absolute;
-      bottom: -30px; left: 45%;
-      width: 120px; height: 120px; border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-    }
-    .header-content { position: relative; z-index: 1; }
-    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
-    .header h1 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 36px; font-weight: 800;
-      color: #fff; letter-spacing: -0.5px;
-    }
-    .header-title {
-      font-size: 12.5px; color: #93c5fd;
-      font-weight: 500; margin-top: 5px; line-height: 1.55;
-    }
-    .open-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(5,150,105,0.22);
-      border: 1px solid rgba(52,211,153,0.45);
-      border-radius: 20px; padding: 4px 12px;
-      font-size: 11px; color: #6ee7b7; font-weight: 700;
-      margin-top: 8px; white-space: nowrap;
-    }
-    .open-dot {
-      width: 7px; height: 7px;
-      background: #34d399; border-radius: 50%;
-      animation: blink 1.4s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    /* ── SIDEBAR ── */
+    .sb { background:#f8faff; padding:18px 14px; border-right:1px solid #e2e8f0; }
+    .sb-sec { margin-bottom:16px; }
+    .sb-h { font-family:'Outfit',sans-serif; font-size:8.5px; font-weight:700;
+      text-transform:uppercase; letter-spacing:1.5px; color:var(--accent);
+      margin-bottom:8px; padding-bottom:4px; border-bottom:1.5px solid var(--light); }
 
-    /* Contact row */
-    .contact-row {
-      display: flex; flex-wrap: wrap;
-      gap: 5px 16px; margin-top: 16px;
-      position: relative; z-index: 1;
-    }
-    .contact-row a, .contact-row span {
-      color: #bfdbfe; font-size: 11.5px;
-      text-decoration: none;
-      display: inline-flex; align-items: center; gap: 5px;
-      transition: color 0.2s;
-    }
-    .contact-row a:hover { color: #fff; text-decoration: underline; }
-    .contact-row .sep { color: rgba(191,219,254,0.35); }
-
-    /* ══ BODY ══ */
-    .body { display: grid; grid-template-columns: 250px 1fr; }
-
-    /* ══ SIDEBAR ══ */
-    .sidebar {
-      background: #f8faff;
-      padding: 26px 18px;
-      border-right: 1px solid #e2e8f0;
-    }
-    .sb-section { margin-bottom: 22px; }
-    .sb-heading {
-      font-family: 'Outfit', sans-serif;
-      font-size: 9px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.6px;
-      color: var(--accent); margin-bottom: 10px;
-      padding-bottom: 5px;
-      border-bottom: 2px solid var(--accent-light);
-    }
-    .skill-group { margin-bottom: 11px; }
-    .skill-group-name {
-      font-weight: 600; font-size: 10.5px;
-      color: var(--primary); margin-bottom: 5px;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 3px; }
-    .tag {
-      font-size: 9.5px; font-weight: 500;
-      padding: 2px 7px; border-radius: 20px;
-      white-space: nowrap;
-    }
-    .t-blue { background:#eff6ff; color:#1d4ed8; border:1px solid rgba(29,78,216,0.18); }
-    .t-green { background:#f0fdf4; color:#166534; border:1px solid rgba(5,150,105,0.2); }
-    .t-purple { background:#faf5ff; color:#6d28d9; border:1px solid rgba(124,58,237,0.2); }
-    .t-orange { background:#fff7ed; color:#9a3412; border:1px solid rgba(234,88,12,0.2); }
-    .t-cyan { background:#ecfeff; color:#0e7490; border:1px solid rgba(8,145,178,0.2); }
-    .t-red { background:#fef2f2; color:#b91c1c; border:1px solid rgba(239,68,68,0.2); }
+    /* Skill groups */
+    .sg-name { font-weight:600; font-size:10px; color:var(--primary); margin-bottom:4px; margin-top:8px; }
+    .sg-name:first-child { margin-top:0; }
+    .tags { display:flex; flex-wrap:wrap; gap:2px; }
+    .t { font-size:9px; font-weight:500; padding:1.5px 6px; border-radius:20px; white-space:nowrap; }
+    .tb { background:#eff6ff; color:#1d4ed8; border:1px solid rgba(29,78,216,.16); }
+    .tg { background:#f0fdf4; color:#166534; border:1px solid rgba(5,150,105,.18); }
+    .tp { background:#faf5ff; color:#6d28d9; border:1px solid rgba(124,58,237,.18); }
+    .to { background:#fff7ed; color:#9a3412; border:1px solid rgba(234,88,12,.18); }
+    .tc { background:#ecfeff; color:#0e7490; border:1px solid rgba(8,145,178,.18); }
 
     /* Education */
-    .edu-item { margin-bottom: 13px; }
-    .edu-deg { font-weight: 700; font-size: 11.5px; color: var(--text); }
-    .edu-inst { font-size: 10.5px; color: var(--muted); margin-top: 1px; }
-    .edu-score {
-      font-size: 10px; color: var(--accent);
-      font-weight: 700; margin-top: 2px;
-    }
+    .edu { margin-bottom:10px; }
+    .edu-d { font-weight:700; font-size:10.5px; }
+    .edu-i { font-size:9.5px; color:var(--muted); margin-top:1px; }
+    .edu-s { font-size:9px; color:var(--accent); font-weight:700; margin-top:2px; }
 
-    /* Languages */
-    .lang-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
-    .lang-name { font-size: 11px; font-weight: 500; min-width: 60px; }
-    .lang-bar { flex: 1; height: 4px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
-    .lang-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+    /* Links block */
+    .link-item { display:flex; align-items:center; gap:5px; margin-bottom:5px; }
+    .link-item a { font-size:9.5px; color:var(--accent); text-decoration:none; font-weight:600;
+      overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .link-item a:hover { color:var(--accent2); }
 
-    /* Keywords */
-    .kw-cloud { display: flex; flex-wrap: wrap; gap: 3px; }
-    .kw { font-size: 9px; padding: 2px 6px; border-radius: 10px;
-      background: linear-gradient(135deg, rgba(29,78,216,0.07), rgba(124,58,237,0.05));
-      color: #3730a3; border: 1px solid rgba(99,102,241,0.14); }
+    /* ATS keywords */
+    .kws { display:flex; flex-wrap:wrap; gap:2px; }
+    .kw { font-size:8.5px; padding:1.5px 5px; border-radius:10px;
+      background:rgba(99,102,241,.07); color:#3730a3; border:1px solid rgba(99,102,241,.12); }
 
-    /* ══ MAIN ══ */
-    .main { padding: 24px 28px; }
-    .section { margin-bottom: 22px; }
-    .section-heading {
-      font-family: 'Outfit', sans-serif;
-      font-size: 9.5px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.6px;
-      color: var(--accent); margin-bottom: 11px;
-      padding-bottom: 5px;
-      border-bottom: 2px solid var(--accent-light);
-    }
+    /* ── MAIN ── */
+    .main { padding:18px 22px; }
+    .sec { margin-bottom:16px; }
+    .sec-h { font-family:'Outfit',sans-serif; font-size:8.5px; font-weight:700;
+      text-transform:uppercase; letter-spacing:1.5px; color:var(--accent);
+      margin-bottom:9px; padding-bottom:4px; border-bottom:1.5px solid var(--light); }
 
     /* Summary */
-    .summary {
-      font-size: 12.5px; color: var(--muted);
-      line-height: 1.75;
-      background: linear-gradient(135deg, rgba(29,78,216,0.04), rgba(124,58,237,0.02));
-      border-left: 3px solid var(--accent);
-      padding: 11px 13px; border-radius: 0 8px 8px 0;
-    }
-    .summary strong { color: var(--text); }
+    .summary { font-size:11.5px; color:var(--muted); line-height:1.7;
+      border-left:3px solid var(--accent); padding:8px 11px;
+      background:rgba(29,78,216,.03); border-radius:0 6px 6px 0; }
+    .summary strong { color:#1e293b; }
 
     /* Experience header */
-    .exp-company {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800; font-size: 16px; color: var(--primary);
-    }
-    .exp-role-tag {
-      display: inline-block;
-      background: linear-gradient(135deg, rgba(29,78,216,0.1), rgba(124,58,237,0.08));
-      border: 1px solid rgba(29,78,216,0.16);
-      border-radius: 6px; padding: 2px 10px;
-      font-size: 11.5px; color: var(--accent);
-      font-weight: 600; margin: 3px 0;
-    }
-    .exp-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 2px; }
-    .exp-date {
-      background: var(--accent-light); color: var(--accent);
-      padding: 2px 10px; border-radius: 20px;
-      font-size: 10px; font-weight: 700;
-    }
-    .exp-loc { font-size: 10.5px; color: var(--muted); }
+    .exp-co { font-family:'Outfit',sans-serif; font-weight:800; font-size:14px; color:var(--primary); }
+    .exp-role { display:inline-block; background:rgba(29,78,216,.09);
+      border:1px solid rgba(29,78,216,.15); border-radius:5px;
+      padding:1.5px 8px; font-size:10.5px; color:var(--accent); font-weight:600; margin:2px 0; }
+    .exp-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:2px; }
+    .exp-date { background:var(--light); color:var(--accent); padding:1.5px 8px;
+      border-radius:20px; font-size:9.5px; font-weight:700; }
+    .exp-loc { font-size:10px; color:var(--muted); }
 
-    /* Project blocks */
-    .proj { margin-top: 10px; padding: 10px 13px; border-left: 3px solid var(--accent);
-      background: #f8faff; border-radius: 0 8px 8px 0; }
-    .proj+.proj { margin-top: 8px; }
-    .proj-num { font-size: 8.5px; font-weight: 700; color: var(--accent2); letter-spacing:1px; text-transform:uppercase; margin-bottom: 2px; }
-    .proj-name { font-weight: 700; font-size: 12px; color: var(--primary); margin-bottom: 5px; }
-    .proj ul { padding-left: 14px; margin-top: 3px; }
-    .proj li { font-size: 11.5px; color: var(--muted); line-height: 1.65; margin-bottom: 3px; }
-    .proj li strong { color: var(--text); }
-    .proj-tech { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px; }
+    /* Project rows - COMPACT */
+    .proj-row { margin-top:7px; padding:7px 10px;
+      border-left:2.5px solid var(--accent); background:#f8faff; border-radius:0 6px 6px 0; }
+    .proj-row:hover { border-left-color:var(--accent2); }
+    .proj-title { font-weight:700; font-size:11px; color:var(--primary); margin-bottom:2px; }
+    .proj-line { font-size:10.5px; color:var(--muted); line-height:1.6; }
+    .proj-line strong { color:#1e293b; }
+    .ptags { display:flex; flex-wrap:wrap; gap:2px; margin-top:4px; }
 
-    /* Academic */
-    .acad { padding: 10px 13px; border-left: 3px solid var(--accent2);
-      background: #faf5ff; border-radius: 0 8px 8px 0; }
-    .acad-name { font-weight: 700; font-size: 12px; color: var(--primary); margin-bottom: 4px; }
-    .acad-desc { font-size: 11.5px; color: var(--muted); line-height: 1.6; }
-    .acad-tech { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+    /* Grouped projects table */
+    .proj-group { margin-top:6px; }
 
     /* Certs */
-    .cert-row {
-      display: flex; align-items: center; gap: 8px;
-      padding: 5px 0; border-bottom: 1px dashed #e2e8f0;
-      font-size: 11.5px; color: var(--muted);
-    }
-    .cert-row:last-child { border-bottom: none; }
-    .cert-dot {
-      width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-    }
+    .cert { display:flex; align-items:center; gap:6px; margin-bottom:4px; font-size:10.5px; color:var(--muted); }
+    .cert-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0;
+      background:linear-gradient(135deg,var(--accent),var(--accent2)); }
 
     /* Achievements */
-    .ach-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 7px; font-size: 11.5px; color: var(--muted); }
-    .ach-icon {
-      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 9px;
-    }
+    .ach { display:flex; gap:6px; align-items:flex-start; margin-bottom:5px; font-size:10.5px; color:var(--muted); }
+    .ach-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; margin-top:1px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      display:flex; align-items:center; justify-content:center; font-size:7px; }
 
-    /* ══ PRINT ══ */
+    /* ── PRINT ── */
     @media print {
-      body { background: #fff; padding: 0; }
-      .page { box-shadow: none; border-radius: 0; max-width: 100%; }
-      .print-bar { display: none !important; }
-      .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .proj, .acad { break-inside: avoid; }
-      @page { margin: 10mm 8mm; size: A4; }
+      body { background:#fff; padding:0; font-size:11px; }
+      .page { box-shadow:none; border-radius:0; max-width:100%; }
+      .bar { display:none !important; }
+      .hdr { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .proj-row { break-inside:avoid; }
+      @page { margin:8mm 7mm; size:A4; }
     }
   </style>
 </head>
 <body>
 
-<!-- PRINT / SAVE AS PDF BUTTON -->
-<div class="print-bar">
-  <button class="print-btn" onclick="window.print()">🖨️ Save as PDF / Print</button>
-  <a href="https://vasusinghal45.github.io" target="_blank" class="print-btn" style="background:linear-gradient(135deg,#0f172a,#1d4ed8);">🌐 Portfolio</a>
+<!-- TOP BAR -->
+<div class="bar">
+  <button class="bar btn-pdf" onclick="window.print()">🖨️ Save as PDF</button>
+  <a href="https://vasusinghal45.github.io" target="_blank" class="bar btn-port">🌐 Portfolio</a>
 </div>
 
 <div class="page">
 
-  <!-- ══ HEADER ══ -->
-  <div class="header">
-    <div class="header-content">
-      <div class="header-top">
-        <div>
-          <h1>Vasu Singhal</h1>
-          <div class="header-title">
-            Embedded Systems Engineer – R&amp;D &amp; System Integration<br/>
-            Computer Vision · RFID · Access Control · ANPR · IoT · Gate Automation
-          </div>
-          <div class="open-badge"><div class="open-dot"></div> Open to Work</div>
-        </div>
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-top">
+      <div>
+        <h1>Vasu Singhal</h1>
+        <div class="hdr-role">Embedded Systems Engineer – R&amp;D &amp; System Integration<br/>
+        Computer Vision · RFID · Access Control · ANPR · GSM OTP · Gate Automation</div>
+        <div class="badge"><div class="badge-dot"></div> Open to Work – Immediate Joiner</div>
       </div>
-      <div class="contact-row">
-        <span>📍 Noida, Uttar Pradesh, India</span>
-        <span class="sep">|</span>
-        <a href="mailto:vasusinghal2018@gmail.com">✉️ vasusinghal2018@gmail.com</a>
-        <span class="sep">|</span>
-        <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank">🔗 linkedin.com/in/vasu-singhal-356595171</a>
-        <span class="sep">|</span>
-        <a href="https://vasusinghal45.github.io" target="_blank">🌐 vasusinghal45.github.io</a>
-        <span class="sep">|</span>
-        <a href="https://github.com/vasusinghal45" target="_blank">💻 github.com/vasusinghal45</a>
-      </div>
+    </div>
+    <div class="contacts">
+      <span>📍 Noida, UP</span>
+      <span class="pipe">|</span>
+      <a href="mailto:vasusinghal2018@gmail.com">✉️ vasusinghal2018@gmail.com</a>
+      <span class="pipe">|</span>
+      <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank">🔗 LinkedIn</a>
+      <span class="pipe">|</span>
+      <a href="https://vasusinghal45.github.io" target="_blank">🌐 Portfolio</a>
+      <span class="pipe">|</span>
+      <a href="https://github.com/vasusinghal45" target="_blank">💻 GitHub</a>
     </div>
   </div>
 
-  <!-- ══ BODY ══ -->
   <div class="body">
 
-    <!-- ── SIDEBAR ── -->
-    <div class="sidebar">
+    <!-- SIDEBAR -->
+    <div class="sb">
 
-      <div class="sb-section">
-        <div class="sb-heading">⚡ Technical Skills</div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">Computer Vision &amp; AI</div>
-          <div class="tags">
-            <span class="tag t-blue">OpenCV</span>
-            <span class="tag t-blue">dlib</span>
-            <span class="tag t-blue">InsightFace</span>
-            <span class="tag t-blue">ArcFace</span>
-            <span class="tag t-blue">MTCNN</span>
-            <span class="tag t-blue">Face Embedding</span>
-            <span class="tag t-blue">ANPR / LPR</span>
-            <span class="tag t-blue">Tesseract OCR</span>
-            <span class="tag t-blue">EasyOCR</span>
-            <span class="tag t-blue">Edge AI</span>
-            <span class="tag t-blue">Real-time Inference</span>
-            <span class="tag t-blue">Liveness Detection</span>
-          </div>
+      <div class="sb-sec">
+        <div class="sb-h">⚡ Skills</div>
+        <div class="sg-name">Computer Vision &amp; AI</div>
+        <div class="tags">
+          <span class="t tb">OpenCV</span><span class="t tb">InsightFace</span><span class="t tb">ArcFace</span>
+          <span class="t tb">dlib</span><span class="t tb">MTCNN</span><span class="t tb">Face Embedding</span>
+          <span class="t tb">ANPR / LPR</span><span class="t tb">Tesseract OCR</span><span class="t tb">Edge AI</span>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">Embedded Systems &amp; IoT</div>
-          <div class="tags">
-            <span class="tag t-green">Arduino</span>
-            <span class="tag t-green">ESP8266 / ESP32</span>
-            <span class="tag t-green">NodeMCU</span>
-            <span class="tag t-green">Raspberry Pi</span>
-            <span class="tag t-green">RFID RC522 / MFRC522</span>
-            <span class="tag t-green">Mifare Classic 1K</span>
-            <span class="tag t-green">SIM800L / SIM900A</span>
-            <span class="tag t-green">SPI / I2C / UART</span>
-            <span class="tag t-green">RS-232 / RS-485</span>
-            <span class="tag t-green">Wiegand Protocol</span>
-            <span class="tag t-green">AT Commands</span>
-          </div>
+        <div class="sg-name">Embedded &amp; IoT</div>
+        <div class="tags">
+          <span class="t tg">Arduino</span><span class="t tg">ESP8266/32</span><span class="t tg">NodeMCU</span>
+          <span class="t tg">Raspberry Pi</span><span class="t tg">MFRC522</span><span class="t tg">Mifare 1K</span>
+          <span class="t tg">SIM800L/900A</span><span class="t tg">SPI/I2C/UART</span><span class="t tg">RS-232/485</span>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">Software &amp; Protocols</div>
-          <div class="tags">
-            <span class="tag t-purple">Python</span>
-            <span class="tag t-purple">C / C++</span>
-            <span class="tag t-purple">SQLite / MySQL</span>
-            <span class="tag t-purple">Flask REST API</span>
-            <span class="tag t-purple">HTTP / WebSocket</span>
-            <span class="tag t-purple">RTSP (IP Camera)</span>
-            <span class="tag t-purple">TOTP / OTP / 2FA</span>
-            <span class="tag t-purple">Multithreading</span>
-            <span class="tag t-purple">NumPy / PIL</span>
-            <span class="tag t-purple">pyserial</span>
-            <span class="tag t-purple">Tkinter / PyQt</span>
-          </div>
+        <div class="sg-name">Software</div>
+        <div class="tags">
+          <span class="t tp">Python</span><span class="t tp">C / C++</span><span class="t tp">SQLite/MySQL</span>
+          <span class="t tp">Flask API</span><span class="t tp">RTSP</span><span class="t tp">Multithreading</span>
+          <span class="t tp">Tkinter/PyQt</span><span class="t tp">AT Commands</span>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">Access Control Hardware</div>
-          <div class="tags">
-            <span class="tag t-orange">Touch Screen Kiosk</span>
-            <span class="tag t-orange">Flap Barrier</span>
-            <span class="tag t-orange">Boom Barrier</span>
-            <span class="tag t-orange">Electromagnetic Lock</span>
-            <span class="tag t-orange">Relay Driver Circuit</span>
-            <span class="tag t-orange">Gate Control System</span>
-            <span class="tag t-orange">Anti-passback Logic</span>
-            <span class="tag t-orange">Visitor Management</span>
-          </div>
+        <div class="sg-name">Access Control Hardware</div>
+        <div class="tags">
+          <span class="t to">Touch Kiosk</span><span class="t to">Flap Barrier</span>
+          <span class="t to">Boom Barrier</span><span class="t to">EM Lock</span>
+          <span class="t to">Relay Circuit</span><span class="t to">Anti-passback</span>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">Operations &amp; Reporting</div>
-          <div class="tags">
-            <span class="tag t-cyan">MS Excel</span>
-            <span class="tag t-cyan">PivotTable</span>
-            <span class="tag t-cyan">VLOOKUP</span>
-            <span class="tag t-cyan">MIS Reports</span>
-            <span class="tag t-cyan">Inventory Mgmt</span>
-            <span class="tag t-cyan">GST Tracking</span>
-            <span class="tag t-cyan">Expense Tracker</span>
-          </div>
+        <div class="sg-name">Operations</div>
+        <div class="tags">
+          <span class="t tc">MS Excel</span><span class="t tc">MIS Reports</span>
+          <span class="t tc">Inventory Mgmt</span><span class="t tc">GST Tracking</span>
         </div>
       </div>
 
-      <div class="sb-section">
-        <div class="sb-heading">🎓 Education</div>
-        <div class="edu-item">
-          <div class="edu-deg">B.Tech – ECE</div>
-          <div class="edu-inst">ABES Engineering College, Ghaziabad (AKTU)</div>
-          <div class="edu-score">76.6% &nbsp;|&nbsp; 2023</div>
+      <div class="sb-sec">
+        <div class="sb-h">🎓 Education</div>
+        <div class="edu">
+          <div class="edu-d">B.Tech – ECE</div>
+          <div class="edu-i">ABES Engg. College (AKTU)</div>
+          <div class="edu-s">76.6% · 2023</div>
         </div>
-        <div class="edu-item">
-          <div class="edu-deg">Diploma – Digital Electronics</div>
-          <div class="edu-inst">Board of Technical Education, Delhi</div>
-          <div class="edu-score">77.89% &nbsp;|&nbsp; 2020</div>
+        <div class="edu">
+          <div class="edu-d">Diploma – Digital Electronics</div>
+          <div class="edu-i">BTE Delhi</div>
+          <div class="edu-s">77.89% · 2020</div>
         </div>
-        <div class="edu-item">
-          <div class="edu-deg">10th – CBSE Board</div>
-          <div class="edu-score">6.8 CGPA &nbsp;|&nbsp; 2017</div>
-        </div>
-      </div>
-
-      <div class="sb-section">
-        <div class="sb-heading">🔍 ATS Keywords</div>
-        <div class="kw-cloud">
-          <span class="kw">Biometric Authentication</span>
-          <span class="kw">Facial Recognition System</span>
-          <span class="kw">Access Control</span>
-          <span class="kw">Smart Gate Automation</span>
-          <span class="kw">AI-based Surveillance</span>
-          <span class="kw">RFID Security</span>
-          <span class="kw">Real-time Video Analytics</span>
-          <span class="kw">Vehicle Access Control</span>
-          <span class="kw">OTP Authentication</span>
-          <span class="kw">Touchless Entry</span>
-          <span class="kw">Multi-factor Auth</span>
-          <span class="kw">Edge Computing</span>
-          <span class="kw">Physical Security</span>
-          <span class="kw">Embedded Firmware</span>
-          <span class="kw">Industrial IoT</span>
-          <span class="kw">HW-SW Integration</span>
-          <span class="kw">Society Gate</span>
-          <span class="kw">Library Automation</span>
-          <span class="kw">Visitor Management</span>
-          <span class="kw">Computer Vision</span>
+        <div class="edu">
+          <div class="edu-d">10th – CBSE</div>
+          <div class="edu-s">6.8 CGPA · 2017</div>
         </div>
       </div>
 
-      <div class="sb-section">
-        <div class="sb-heading">🗣️ Languages</div>
-        <div class="lang-row">
-          <div class="lang-name">Hindi</div>
-          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-        </div>
-        <div class="lang-row">
-          <div class="lang-name">English</div>
-          <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
+      <div class="sb-sec">
+        <div class="sb-h">🔗 Links</div>
+        <div class="link-item">🌐 <a href="https://vasusinghal45.github.io" target="_blank">vasusinghal45.github.io</a></div>
+        <div class="link-item">💻 <a href="https://github.com/vasusinghal45" target="_blank">github.com/vasusinghal45</a></div>
+        <div class="link-item">🔗 <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank">linkedin.com/in/vasu-singhal</a></div>
+        <div class="link-item">✉️ <a href="mailto:vasusinghal2018@gmail.com">vasusinghal2018@gmail.com</a></div>
+      </div>
+
+      <div class="sb-sec">
+        <div class="sb-h">🔍 ATS Keywords</div>
+        <div class="kws">
+          <span class="kw">Biometric Auth</span><span class="kw">Facial Recognition</span>
+          <span class="kw">Access Control</span><span class="kw">Gate Automation</span>
+          <span class="kw">AI Surveillance</span><span class="kw">RFID Security</span>
+          <span class="kw">Edge Computing</span><span class="kw">Touchless Entry</span>
+          <span class="kw">OTP/2FA</span><span class="kw">MFA Physical</span>
+          <span class="kw">Embedded Firmware</span><span class="kw">IIoT</span>
+          <span class="kw">Computer Vision</span><span class="kw">HW-SW Integration</span>
         </div>
       </div>
 
-      <div class="sb-section">
-        <div class="sb-heading">🔗 Links</div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <a href="https://vasusinghal45.github.io" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:5px;">🌐 vasusinghal45.github.io</a>
-          <a href="https://github.com/vasusinghal45" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:5px;">💻 github.com/vasusinghal45</a>
-          <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:5px;">🔗 LinkedIn Profile</a>
-          <a href="mailto:vasusinghal2018@gmail.com" style="font-size:11px;color:var(--accent);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:5px;">✉️ vasusinghal2018@gmail.com</a>
-        </div>
-      </div>
+    </div><!-- /sb -->
 
-    </div><!-- /sidebar -->
-
-    <!-- ── MAIN ── -->
+    <!-- MAIN -->
     <div class="main">
 
       <!-- SUMMARY -->
-      <div class="section">
-        <div class="section-heading">🎯 Professional Summary</div>
+      <div class="sec">
+        <div class="sec-h">🎯 Summary</div>
         <p class="summary">
-          <strong>Results-driven Embedded Systems Engineer</strong> with <strong>2+ years of industry experience</strong> at Socteamup Semiconductor Pvt. Ltd., Noida — designing, deploying, and scaling <strong>AI-powered security, access control, and automation systems</strong>. Expert in <strong>end-to-end hardware-software integration</strong>: face recognition pipelines (InsightFace/ArcFace, OpenCV, dlib, MTCNN), ANPR/OCR, RFID encrypted firmware, GSM/OTP authentication, and full barrier integration (flap/boom/electromagnetic locks). Delivered <strong>14 production systems</strong> across libraries, swimming pools, and society gates. Passionate about architecting intelligent IIoT ecosystems at scale. Available for immediate joining.
+          <strong>Embedded Systems Engineer</strong> with <strong>2+ years</strong> at Socteamup Semiconductor, Noida — building <strong>AI-powered access control &amp; security systems</strong> end-to-end. Shipped <strong>14 production systems</strong> across libraries, pools &amp; society gates using InsightFace/OpenCV, RFID, ANPR, GSM OTP, and barrier hardware. Expert at hardware-software co-design — from firmware to real-time dashboards. <strong>Available for immediate joining.</strong>
         </p>
       </div>
 
       <!-- EXPERIENCE -->
-      <div class="section">
-        <div class="section-heading">💼 Professional Experience</div>
-
-        <div class="exp-company">Socteamup Semiconductor Pvt. Ltd.</div>
-        <div class="exp-role-tag">Embedded Systems Engineer – R&amp;D &amp; System Integration</div>
+      <div class="sec">
+        <div class="sec-h">💼 Experience</div>
+        <div class="exp-co">Socteamup Semiconductor Pvt. Ltd.</div>
+        <div class="exp-role">Embedded Systems Engineer – R&amp;D &amp; System Integration</div>
         <div class="exp-meta">
           <span class="exp-date">April 2024 – Present</span>
           <span class="exp-loc">📍 Noida, Uttar Pradesh</span>
         </div>
 
-        <div class="proj">
-          <div class="proj-num">Project 01</div>
-          <div class="proj-name">Face Recognition – Automated Attendance &amp; In/Out Management (v1)</div>
-          <ul>
-            <li>Engineered a <strong>real-time face detection &amp; recognition pipeline</strong> using OpenCV (HOG detector) and dlib (68-point landmarks + face_recognition lib) for zero-touch attendance marking and entry/exit logging to SQLite.</li>
-            <li>Implemented <strong>128-d face embedding comparison</strong> (Euclidean distance thresholding) achieving &gt;15 FPS inference — eliminated 100% manual punch-in/out across the organization.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-blue">Python</span><span class="tag t-blue">OpenCV</span><span class="tag t-blue">dlib</span>
-            <span class="tag t-blue">128-d Embedding</span><span class="tag t-blue">Euclidean Distance</span><span class="tag t-blue">SQLite</span><span class="tag t-blue">HOG Detector</span>
+        <!-- P1-P2: Face Recognition -->
+        <div class="proj-row">
+          <div class="proj-title">Face Recognition – Attendance &amp; Library Kiosk (v1 → InsightFace Upgrade)</div>
+          <div class="proj-line">
+            Built real-time pipeline (OpenCV+dlib HOG, 128-d embedding) → migrated to <strong>InsightFace/ArcFace+MTCNN</strong> achieving <strong>sub-100ms inference</strong>. Deployed industrial touch-screen kiosk at library — zero-touch attendance, SQLite records, member fine display. Eliminated 100% manual punch-in/out.
+          </div>
+          <div class="ptags">
+            <span class="t tb">InsightFace</span><span class="t tb">ArcFace</span><span class="t tb">OpenCV</span>
+            <span class="t tb">dlib</span><span class="t tp">Python</span><span class="t tp">SQLite</span><span class="t to">Touch Kiosk</span>
           </div>
         </div>
 
-        <div class="proj">
-          <div class="proj-num">Project 02</div>
-          <div class="proj-name">InsightFace Engine Upgrade + Industrial Touch Kiosk – Library Access Automation</div>
-          <ul>
-            <li>Migrated from dlib → <strong>InsightFace (Buffalo_L / ArcFace + MTCNN)</strong>; achieved <strong>sub-100ms inference</strong>, higher TAR, robust classification under varied lighting &amp; pose.</li>
-            <li>Deployed <strong>industrial touch-screen kiosk</strong> at library — real-time UI showing member name, photo, fine status, entry/exit timestamp; zero manual registration required.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-blue">InsightFace</span><span class="tag t-blue">ArcFace</span><span class="tag t-blue">MTCNN</span>
-            <span class="tag t-blue">Buffalo_L Model</span><span class="tag t-orange">Touch Screen Kiosk</span><span class="tag t-blue">Library Automation</span>
+        <!-- P3-P5: Dashboard + RFID + Barrier -->
+        <div class="proj-row">
+          <div class="proj-title">Multi-modal Kiosk + Flap/Boom Barrier + Live Dashboard</div>
+          <div class="proj-line">
+            Extended kiosk with <strong>RFID MFRC522 (SPI, Mifare 1K)</strong> + barcode (QR/EAN-13). Built RTSP/Flask admin dashboard (member DB, fines, attendance export). Integrated <strong>flap barrier via RS-485 relay + anti-passback logic</strong> — deployed at library &amp; swimming pool.
+          </div>
+          <div class="ptags">
+            <span class="t tg">MFRC522</span><span class="t tg">SPI</span><span class="t tp">Flask API</span>
+            <span class="t tp">RTSP</span><span class="t tp">MySQL</span><span class="t to">Flap Barrier</span><span class="t to">RS-485</span>
           </div>
         </div>
 
-        <div class="proj">
-          <div class="proj-num">Project 03</div>
-          <div class="proj-name">Centralized Live Admin Dashboard – Real-time Surveillance &amp; Data Management</div>
-          <ul>
-            <li>Built <strong>multi-pane admin dashboard</strong>: live RTSP/USB camera feeds + real-time recognition logs, member profiles, fine ledger, and in/out history via Python Tkinter/PyQt &amp; Flask REST API.</li>
-            <li>Enabled administrators to <strong>search, filter, and export attendance &amp; fine reports</strong> without any third-party tools.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-purple">RTSP / USB Camera</span><span class="tag t-purple">Flask REST API</span>
-            <span class="tag t-purple">Tkinter / PyQt</span><span class="tag t-purple">SQLite / MySQL</span><span class="tag t-purple">Member Management</span>
+        <!-- P6: Custom RFID -->
+        <div class="proj-row">
+          <div class="proj-title">Custom RFID R/W – Encrypted Sector/Block Protocol</div>
+          <div class="proj-line">
+            MFRC522 at Mifare sector/block level with <strong>Key A/B auth</strong> — binary encoding (member ID, access level, checksum) across sectors. Cards are <strong>anti-clone &amp; offline-verifiable</strong>; write-protected via access bit configuration.
+          </div>
+          <div class="ptags">
+            <span class="t tg">MFRC522</span><span class="t tc">Key A/B Auth</span><span class="t tc">Anti-clone</span><span class="t tc">Binary Encoding</span>
           </div>
         </div>
 
-        <div class="proj">
-          <div class="proj-num">Project 04</div>
-          <div class="proj-name">Multi-modal Entry System – RFID + Barcode Integration on Kiosk</div>
-          <ul>
-            <li>Extended kiosk with <strong>1D/2D barcode scanner (USB HID)</strong> + <strong>RFID RC522/MFRC522 (SPI)</strong> as parallel entry modalities — average entry time &lt;1 second.</li>
-            <li>Unified all three modalities (face / barcode / RFID) under a single <strong>event-driven Python dispatcher</strong>; supported Mifare Classic 1K, Ultralight, EAN-13, and QR formats.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-green">RFID RC522 / MFRC522</span><span class="tag t-green">SPI Interface</span>
-            <span class="tag t-orange">Barcode USB HID</span><span class="tag t-orange">QR Code</span><span class="tag t-green">Mifare Classic 1K</span><span class="tag t-purple">Event-driven Arch.</span>
+        <!-- P7: ANPR -->
+        <div class="proj-row">
+          <div class="proj-title">ANPR / LPR – AI Vehicle Number Plate Recognition &amp; Gate Control</div>
+          <div class="proj-line">
+            OpenCV pipeline (Canny edge + adaptive threshold + morphological ops → plate localization) + <strong>Tesseract/EasyOCR</strong>. Whitelist DB triggers <strong>boom barrier open or security alert</strong> for vehicles.
+          </div>
+          <div class="ptags">
+            <span class="t tb">OpenCV</span><span class="t tb">Tesseract OCR</span><span class="t tb">EasyOCR</span>
+            <span class="t tb">ANPR/LPR</span><span class="t to">Boom Barrier</span>
           </div>
         </div>
 
-        <div class="proj">
-          <div class="proj-num">Project 05</div>
-          <div class="proj-name">Kiosk + Flap Barrier – Library &amp; Swimming Pool Gate Control</div>
-          <ul>
-            <li>Interfaced kiosk with <strong>tri-arm flap barrier controllers</strong> via relay circuits + RS-232/RS-485 serial commands — gates open/close on successful authentication.</li>
-            <li>Deployed at two sites; managed <strong>membership tiers, session-based access, guest passes, time-slot enforcement, and anti-passback logic</strong> to prevent tailgating.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-orange">Flap Barrier</span><span class="tag t-orange">Relay Driver</span>
-            <span class="tag t-green">RS-232 / RS-485</span><span class="tag t-orange">Anti-passback</span><span class="tag t-orange">Membership Management</span>
+        <!-- P8-11: GSM + MFA -->
+        <div class="proj-row">
+          <div class="proj-title">GSM OTP Gate + Smart Visitor Kiosk – Multi-factor Physical Access (MFA)</div>
+          <div class="proj-line">
+            <strong>SIM800L AT commands</strong> → auto voice call + SMS OTP to resident → TOTP validation → relay to boom barrier (&lt;30s flow). Next-gen visitor kiosk: <strong>face recognition + flat lookup + OTP → EM lock + flap + boom</strong> via unified middleware. Full visitor audit trail.
+          </div>
+          <div class="ptags">
+            <span class="t tg">SIM800L</span><span class="t tc">TOTP/OTP</span><span class="t tc">MFA</span>
+            <span class="t tb">InsightFace</span><span class="t to">EM Lock</span><span class="t to">Boom Barrier</span><span class="t tc">Audit Trail</span>
           </div>
         </div>
 
-        <div class="proj">
-          <div class="proj-num">Project 06</div>
-          <div class="proj-name">Custom RFID R/W – Encrypted Sector/Block Data Protocol</div>
-          <ul>
-            <li>Designed MFRC522-based module at <strong>Mifare sector/block layer</strong> with proprietary <strong>Key A/B authentication</strong> — cards cannot be cloned by generic readers.</li>
-            <li>Implemented <strong>binary data encoding</strong> across sectors (member ID, access level, timestamp, checksum) — offline-verifiable; write-protected via access bit configuration.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-green">MFRC522</span><span class="tag t-green">Mifare Classic</span><span class="tag t-cyan">Key A/B Auth</span>
-            <span class="tag t-cyan">Binary Encoding</span><span class="tag t-cyan">Anti-clone</span><span class="tag t-cyan">Offline Verification</span>
+        <!-- P12-14: Operations -->
+        <div class="proj-row">
+          <div class="proj-title">Inventory Management, MIS Reporting &amp; Expense Tracking</div>
+          <div class="proj-line">
+            Excel-based inventory system (inward/outward logs, reorder alerts, vendor history). MIS reports with PivotTables, VLOOKUP, dynamic charts for budget vs. actual tracking. GST expense tracker with monthly reconciliation reports for financial audit readiness.
           </div>
-        </div>
-
-        <div class="proj">
-          <div class="proj-num">Project 07</div>
-          <div class="proj-name">ANPR / LPR – AI-based Vehicle Number Plate Recognition &amp; Barrier Control</div>
-          <ul>
-            <li>Built ANPR pipeline: <strong>OpenCV</strong> (Canny edge + adaptive thresholding + morphological ops → plate localization) + <strong>Tesseract OCR / EasyOCR</strong> for high-accuracy plate extraction.</li>
-            <li>Cross-referenced plates against <strong>whitelist database</strong> — triggered barrier open signal or security alert for unauthorized vehicles.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-blue">OpenCV</span><span class="tag t-blue">Tesseract OCR</span><span class="tag t-blue">EasyOCR</span>
-            <span class="tag t-blue">ANPR / LPR</span><span class="tag t-blue">Canny Edge</span><span class="tag t-orange">Whitelist DB</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="proj-num">Projects 08–09</div>
-          <div class="proj-name">GSM OTP Voice Call &amp; SMS Verification – Society Gate Automation</div>
-          <ul>
-            <li><strong>SIM800L/SIM900A AT commands</strong> via UART → automatic voice calls + SMS OTPs to residents on visitor arrival; fallback SMS if call fails.</li>
-            <li>TOTP hash validation on keypad → <strong>relay pulse to boom barrier</strong> for configurable gate-open duration; full event log (visitor photo, timestamp, flat no., OTP status).</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-green">SIM800L / SIM900A</span><span class="tag t-green">AT Commands</span><span class="tag t-green">UART</span>
-            <span class="tag t-cyan">OTP / TOTP</span><span class="tag t-orange">Relay Pulse</span><span class="tag t-orange">Boom Barrier</span><span class="tag t-orange">Society Gate</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="proj-num">Projects 10–11</div>
-          <div class="proj-name">Smart Visitor Kiosk – Multi-factor Physical Access (MFA) System</div>
-          <ul>
-            <li>Built next-gen visitor kiosk: <strong>face recognition (InsightFace) + flat number lookup + OTP voice/SMS</strong> — complete verification flow in &lt;30 seconds end-to-end.</li>
-            <li>Unified middleware dispatches unlock to <strong>EM locks, flap barriers, and boom barriers</strong> simultaneously; full audit trail (visitor photo, gate action, timestamp, flat no.).</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-cyan">MFA</span><span class="tag t-blue">InsightFace</span>
-            <span class="tag t-cyan">OTP Voice/SMS</span><span class="tag t-orange">EM Lock</span><span class="tag t-orange">Flap Barrier</span><span class="tag t-orange">Boom Barrier</span><span class="tag t-cyan">Audit Trail</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="proj-num">Projects 12–14</div>
-          <div class="proj-name">Inventory Management, MIS Reporting &amp; Financial Records System</div>
-          <ul>
-            <li>Designed <strong>inventory management system</strong> tracking all hardware components (RFID, GSM, relay boards, kiosk parts) with inward/outward logs, reorder alerts, and vendor history in Excel.</li>
-            <li>Created <strong>MIS reports</strong> (PivotTables, VLOOKUP, dynamic charts) covering project costs, labour hours, and delivery timelines; monthly budget vs. actual tracking for management.</li>
-            <li>Managed <strong>end-to-end expense workflow</strong>: digitised vendor bills, maintained GST expense tracker, monthly reconciliation reports with category-wise pie charts for financial audit readiness.</li>
-          </ul>
-          <div class="proj-tech">
-            <span class="tag t-cyan">MS Excel</span><span class="tag t-cyan">MIS Reports</span><span class="tag t-cyan">PivotTable</span>
-            <span class="tag t-cyan">GST Tracking</span><span class="tag t-cyan">Inventory Mgmt</span><span class="tag t-cyan">Financial Reconciliation</span>
+          <div class="ptags">
+            <span class="t tc">MS Excel</span><span class="t tc">PivotTable</span><span class="t tc">MIS Reports</span>
+            <span class="t tc">GST Tracking</span><span class="t tc">Inventory Mgmt</span>
           </div>
         </div>
       </div>
 
-      <!-- ACADEMIC -->
-      <div class="section">
-        <div class="section-heading">🏫 Academic Projects</div>
-        <div class="acad">
-          <div class="acad-name">Automatic Temperature Controlled Fan &nbsp;|&nbsp; Soldier Health &amp; GPS Tracking &nbsp;|&nbsp; IoT Home Automation</div>
-          <div class="acad-desc">
-            PWM-based fan speed controller (Arduino + temp sensor) — breadboard &amp; sim validated. &nbsp;·&nbsp;
-            IoT soldier health &amp; GPS monitoring system via NodeMCU for real-time tactical decisions. &nbsp;·&nbsp;
-            Smart home appliance control (cooler, heater, LEDs, tank) using Blynk IoT + C programming + PicSim.
-          </div>
-          <div class="acad-tech">
-            <span class="tag t-green">Arduino</span><span class="tag t-green">NodeMCU</span><span class="tag t-green">Blynk IoT</span>
-            <span class="tag t-green">GPS</span><span class="tag t-purple">PWM</span><span class="tag t-purple">C Programming</span>
-          </div>
+      <!-- CERTIFICATIONS + ACHIEVEMENTS side by side -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div class="sec">
+          <div class="sec-h">🏆 Certifications</div>
+          <div class="cert"><div class="cert-dot"></div> Front End Development – <strong>Great Learning</strong></div>
+          <div class="cert"><div class="cert-dot"></div> C Programming – <strong>TCS iON</strong></div>
+          <div class="cert"><div class="cert-dot"></div> Internet of Things – <strong>Emertxe</strong></div>
+          <div class="cert"><div class="cert-dot"></div> Embedded System &amp; IoT – <strong>ABES</strong></div>
+          <div class="cert"><div class="cert-dot"></div> CCNAv7: Intro to Networks – <strong>Cisco</strong></div>
+          <div class="cert"><div class="cert-dot"></div> TCS iON Career Edge – <strong>Young Professional</strong></div>
         </div>
-      </div>
-
-      <!-- CERTIFICATIONS -->
-      <div class="section">
-        <div class="section-heading">🏆 Certifications</div>
-        <div class="cert-row"><div class="cert-dot"></div> Front End Development &nbsp;–&nbsp; <strong>Great Learning</strong></div>
-        <div class="cert-row"><div class="cert-dot"></div> C Programming &nbsp;–&nbsp; <strong>TCS iON</strong></div>
-        <div class="cert-row"><div class="cert-dot"></div> Internet of Things (IoT) &nbsp;–&nbsp; <strong>Emertxe</strong></div>
-        <div class="cert-row"><div class="cert-dot"></div> Embedded System &amp; IoT &nbsp;–&nbsp; <strong>ABES Engineering College</strong></div>
-        <div class="cert-row"><div class="cert-dot"></div> CCNAv7: Introduction to Networks &nbsp;–&nbsp; <strong>Cisco Networking Academy</strong></div>
-        <div class="cert-row"><div class="cert-dot"></div> TCS iON Career Edge – Young Professional &nbsp;–&nbsp; <strong>TCS iON</strong></div>
-      </div>
-
-      <!-- ACHIEVEMENTS -->
-      <div class="section">
-        <div class="section-heading">🌟 Achievements &amp; Activities</div>
-        <div class="ach-row">
-          <div class="ach-icon">🤖</div>
-          Completed <strong>Robotics (O-Level)</strong> – Times Institute of Management &amp; Technical Studies
-        </div>
-        <div class="ach-row">
-          <div class="ach-icon">🎓</div>
-          Participated in <strong>Embedded System Design MOOC</strong> by Texas Instruments
-        </div>
-        <div class="ach-row">
-          <div class="ach-icon">🏭</div>
-          Delivered <strong>5 production-grade systems</strong> deployed at real client sites (libraries, swimming pools, society gates) within 12 months at Socteamup Semiconductor
+        <div class="sec">
+          <div class="sec-h">🌟 Highlights</div>
+          <div class="ach"><div class="ach-dot">🏭</div><span>Delivered <strong>5 production systems</strong> at real client sites within 12 months</span></div>
+          <div class="ach"><div class="ach-dot">🤖</div><span>Robotics (O-Level) – Times Institute of Mgmt. &amp; Technical Studies</span></div>
+          <div class="ach"><div class="ach-dot">🎓</div><span>Embedded System Design MOOC – Texas Instruments</span></div>
+          <div class="ach"><div class="ach-dot">📚</div><span>Academic: Temp-Controlled Fan | Soldier Health Tracker | IoT Home Automation (Arduino, NodeMCU, Blynk)</span></div>
         </div>
       </div>
 
@@ -669,9 +377,6 @@
   </div><!-- /body -->
 </div><!-- /page -->
 
-<script>
-// Make all external links open in new tab
-document.querySelectorAll('a[href^="http"]').forEach(a => a.setAttribute('target', '_blank'));
-</script>
+<script>document.querySelectorAll('a[href^="http"]').forEach(a=>a.setAttribute('target','_blank'));</script>
 </body>
 </html>
