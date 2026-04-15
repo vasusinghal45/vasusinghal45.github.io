@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vasu Singhal – Cover Letter | Embedded Systems Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f1f3d;
+      --accent: #1d4ed8;
+      --accent2: #7c3aed;
+      --light: #dbeafe;
+      --muted: #4b5563;
+      --bg: #f0f4ff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: #1e293b; font-size: 13px; padding: 16px; }
+
+    /* TOP BAR */
+    .bar { max-width: 720px; margin: 0 auto 12px; display: flex; gap: 8px; justify-content: flex-end; }
+    .bar button, .bar a {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 20px; border-radius: 30px;
+      font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
+      cursor: pointer; border: none; text-decoration: none; transition: .25s;
+    }
+    .btn-pdf { background: linear-gradient(135deg, #1d4ed8, #7c3aed); color: #fff; box-shadow: 0 3px 14px rgba(29,78,216,.35); }
+    .btn-pdf:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(29,78,216,.5); }
+    .btn-res { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #fff; }
+    .btn-res:hover { transform: translateY(-2px); }
+
+    /* PAGE */
+    .page {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border-radius: 14px;
+      box-shadow: 0 6px 40px rgba(29,78,216,.12); overflow: hidden;
+    }
+
+    /* HEADER */
+    .hdr {
+      background: linear-gradient(135deg, #0f1f3d 0%, #1d4ed8 55%, #7c3aed 100%);
+      padding: 28px 40px 22px; position: relative; overflow: hidden;
+    }
+    .hdr::before { content: ''; position: absolute; top: -40px; right: -40px;
+      width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,.06); }
+    .hdr::after { content: ''; position: absolute; bottom: -20px; left: 40%;
+      width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,.04); }
+    .hdr-inner { position: relative; z-index: 1; }
+    .hdr h1 { font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -.4px; }
+    .hdr-role { font-size: 11.5px; color: #93c5fd; margin-top: 3px; font-weight: 500; }
+    .badge { display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(5,150,105,.22); border: 1px solid rgba(52,211,153,.45);
+      border-radius: 20px; padding: 3px 10px;
+      font-size: 10px; color: #6ee7b7; font-weight: 700; margin-top: 6px; }
+    .badge-dot { width: 6px; height: 6px; background: #34d399; border-radius: 50%; animation: blink 1.4s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+    .contacts { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; }
+    .contacts a, .contacts span { color: #bfdbfe; font-size: 10.5px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 4px; }
+    .contacts a:hover { color: #fff; }
+    .contacts .pipe { color: rgba(191,219,254,.3); }
+
+    /* DOC LABEL */
+    .doc-label {
+      background: linear-gradient(135deg, rgba(29,78,216,.07), rgba(124,58,237,.05));
+      border-bottom: 2px solid var(--light);
+      padding: 12px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .doc-type { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 800;
+      color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+    .doc-date { font-size: 11px; color: var(--muted); }
+
+    /* BODY */
+    .body { padding: 36px 40px; }
+
+    /* Recipient */
+    .recipient { margin-bottom: 24px; }
+    .recipient-to { font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+    .recipient-name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 15px; color: var(--primary); }
+    .recipient-org { font-size: 12px; color: var(--muted); }
+
+    /* Subject line */
+    .subject-line {
+      background: linear-gradient(135deg, rgba(29,78,216,.06), rgba(124,58,237,.04));
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px; border-radius: 0 8px 8px 0;
+      margin-bottom: 28px;
+    }
+    .subject-label { font-size: 9px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+    .subject-text { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: var(--primary); }
+
+    /* Paragraphs */
+    .letter-body p {
+      font-size: 13px; color: #374151; line-height: 1.9;
+      margin-bottom: 18px; text-align: justify;
+    }
+    .letter-body p strong { color: var(--primary); }
+    .letter-body p a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .letter-body p a:hover { text-decoration: underline; color: var(--accent2); }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(29,78,216,.05), rgba(124,58,237,.03));
+      border: 1px solid rgba(29,78,216,.12);
+      border-radius: 10px; padding: 16px 20px; margin: 20px 0;
+    }
+    .highlight-box .h-title { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 800;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 7px; font-size: 12px; color: #374151; line-height: 1.6; }
+    .h-bullet { font-size: 14px; flex-shrink: 0; margin-top: -1px; }
+
+    /* Sign off */
+    .signoff { margin-top: 28px; }
+    .signoff-text { font-size: 13px; color: #374151; line-height: 1.8; }
+    .signoff-name {
+      font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-top: 16px; margin-bottom: 2px;
+    }
+    .signoff-title { font-size: 11.5px; color: var(--muted); }
+    .signoff-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; }
+    .signoff-links a { font-size: 11px; color: var(--accent); text-decoration: none; font-weight: 600; }
+    .signoff-links a:hover { color: var(--accent2); }
+
+    /* Footer */
+    .footer {
+      background: #f8faff; border-top: 1px solid #e2e8f0;
+      padding: 14px 40px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    }
+    .footer-note { font-size: 10.5px; color: var(--muted); }
+    .footer-links { display: flex; gap: 12px; }
+    .footer-links a { font-size: 10.5px; color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    /* PRINT */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; max-width: 100%; }
+      .bar { display: none !important; }
+      .hdr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      @page { margin: 10mm 10mm; size: A4; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="bar">
+  <button class="btn-pdf" onclick="window.print()">🖨️ Save as PDF</button>
+  <a href="Vasu_Singhal_Resume.html" class="btn-res">📄 View Resume</a>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-inner">
+      <h1>Vasu Singhal</h1>
+      <div class="hdr-role">Embedded Systems Engineer – R&amp;D &amp; System Integration</div>
+      <div class="badge"><div class="badge-dot"></div> Open to Work – Immediate Joiner</div>
+      <div class="contacts">
+        <span>📍 Noida, Uttar Pradesh</span>
+        <span class="pipe">|</span>
+        <a href="mailto:vasusinghal2018@gmail.com">✉️ vasusinghal2018@gmail.com</a>
+        <span class="pipe">|</span>
+        <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank">🔗 LinkedIn</a>
+        <span class="pipe">|</span>
+        <a href="https://vasusinghal45.github.io" target="_blank">🌐 Portfolio</a>
+        <span class="pipe">|</span>
+        <a href="https://github.com/vasusinghal45" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOC LABEL -->
+  <div class="doc-label">
+    <div class="doc-type">✉️ Cover Letter</div>
+    <div class="doc-date">April 2026</div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- Recipient -->
+    <div class="recipient">
+      <div class="recipient-to">To,</div>
+      <div class="recipient-name">The Hiring Manager</div>
+      <div class="recipient-org">HR / Talent Acquisition Team</div>
+    </div>
+
+    <!-- Subject -->
+    <div class="subject-line">
+      <div class="subject-label">Re: Application for</div>
+      <div class="subject-text">Embedded Systems Engineer / Computer Vision Engineer / IoT Developer</div>
+    </div>
+
+    <!-- Letter Content -->
+    <div class="letter-body">
+
+      <p>Dear Hiring Manager,</p>
+
+      <p>
+        I am writing to express my strong interest in an <strong>Embedded Systems / Computer Vision / IoT role</strong> at your organization. With <strong>2+ years of hands-on industry experience</strong> at Socteamup Semiconductor Pvt. Ltd., Noida, I have designed and deployed <strong>14 production-grade intelligent security systems</strong> — from AI-powered face recognition kiosks and ANPR vehicle access control to GSM OTP gate automation and encrypted RFID access control systems — all from hardware to software, end-to-end.
+      </p>
+
+      <p>
+        What sets me apart is my ability to bridge the gap between <strong>AI/computer vision software</strong> and <strong>physical embedded hardware</strong>. I don't just write Python scripts — I integrate them with microcontrollers, relay circuits, flap barriers, boom barriers, and industrial kiosks that operate 24/7 in real environments. My work has been deployed at <strong>libraries, swimming pools, and residential society gates</strong> serving hundreds of users daily.
+      </p>
+
+      <!-- Key Highlights Box -->
+      <div class="highlight-box">
+        <div class="h-title">⚡ Key Highlights</div>
+        <div class="highlight-item"><div class="h-bullet">🧠</div><span><strong>Face Recognition:</strong> Built dlib → InsightFace/ArcFace pipeline (sub-100ms inference, &gt;15 FPS, zero-touch attendance) deployed on industrial touch-screen kiosks.</span></div>
+        <div class="highlight-item"><div class="h-bullet">🚗</div><span><strong>ANPR/LPR:</strong> OpenCV + Tesseract/EasyOCR pipeline for number plate extraction — triggers boom barrier open/close via whitelist database.</span></div>
+        <div class="highlight-item"><div class="h-bullet">📡</div><span><strong>GSM OTP System:</strong> SIM800L AT commands → auto voice call + SMS OTP → TOTP validation → relay pulse to gate barrier (&lt;30s end-to-end).</span></div>
+        <div class="highlight-item"><div class="h-bullet">🔐</div><span><strong>Encrypted RFID:</strong> Custom MFRC522 reader with Key A/B sector-level authentication — anti-clone, offline-verifiable Mifare cards.</span></div>
+        <div class="highlight-item"><div class="h-bullet">🏭</div><span><strong>5 live deployments</strong> at real client sites within 12 months — libraries, swimming pools, and society gates.</span></div>
+      </div>
+
+      <p>
+        I am proficient in <strong>Python, C/C++, OpenCV, Flask REST APIs, SQLite/MySQL, RTSP camera integration, Multithreading, and pyserial</strong> on the software side; and <strong>Arduino, ESP8266/32, NodeMCU, Raspberry Pi, MFRC522, SIM800L, RS-232/485, relay circuits, flap &amp; boom barriers</strong> on the hardware side. I have also managed MIS reporting, inventory management, and financial tracking using Excel — giving me a holistic view of engineering operations.
+      </p>
+
+      <p>
+        I am a <strong>fast learner, problem-solver, and immediate joiner</strong> who thrives in R&amp;D environments where real-world impact is the goal. I would be thrilled to bring my experience in building intelligent, production-ready hardware-software systems to your team.
+      </p>
+
+      <p>
+        I have attached my resume for your reference. You can also view my full portfolio and projects at <a href="https://vasusinghal45.github.io" target="_blank">vasusinghal45.github.io</a> and my GitHub at <a href="https://github.com/vasusinghal45" target="_blank">github.com/vasusinghal45</a>. I would love the opportunity to discuss how my skills and experience align with your team's needs.
+      </p>
+
+      <p>Thank you for your time and consideration. I look forward to hearing from you.</p>
+    </div>
+
+    <!-- SIGN OFF -->
+    <div class="signoff">
+      <div class="signoff-text">Warm regards,</div>
+      <div class="signoff-name">Vasu Singhal</div>
+      <div class="signoff-title">Embedded Systems Engineer – R&amp;D &amp; System Integration</div>
+      <div class="signoff-links">
+        <a href="mailto:vasusinghal2018@gmail.com">✉️ vasusinghal2018@gmail.com</a>
+        <a href="https://www.linkedin.com/in/vasu-singhal-356595171" target="_blank">🔗 LinkedIn</a>
+        <a href="https://vasusinghal45.github.io" target="_blank">🌐 Portfolio</a>
+        <a href="https://github.com/vasusinghal45" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">📎 Resume attached &nbsp;·&nbsp; 📁 D:\resume soc\vasusinghal_ATS_resume</div>
+    <div class="footer-links">
+      <a href="Vasu_Singhal_Resume.html">Resume →</a>
+      <a href="https://vasusinghal45.github.io" target="_blank">Portfolio →</a>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>document.querySelectorAll('a[href^="http"]').forEach(a=>a.setAttribute('target','_blank'));</script>
+</body>
+</html>
